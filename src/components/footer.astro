@@ -1,0 +1,107 @@
+---
+interface Props {
+  lang: 'pt' | 'es';
+}
+
+const { lang } = Astro.props;
+
+import ptFooter from '../i18n/pt/footer.json';
+import esFooter from '../i18n/es/footer.json';
+
+const t = lang === 'pt' ? ptFooter : esFooter;
+
+import { Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from '@lucide/astro';
+---
+
+<footer class="px-8 py-16 md:px-32 md:py-32 bg-linear-to-r from-[#0004FF] to-[#FF0A0A]">
+  
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-16">
+    
+    <!-- Logo e descrição -->
+    <div class="md:col-span-2">
+      <a href={`/${lang}`} class="inline-block">
+        <img src="/logo-white.svg" alt="Mira Marketing" class="h-8 md:h-12" />
+      </a>
+      <p class="text-white text-sm md:text-base mt-4 md:mt-8 max-w-md">
+        {t.description}
+      </p>
+      
+      <!-- Social -->
+      <div class="flex gap-4 mt-8">
+        <a href={t.social.instagram} target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="Instagram">
+          <Instagram class="w-6 h-6" />
+        </a>
+        <a href={t.social.linkedin} target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="LinkedIn">
+          <Linkedin class="w-6 h-6" />
+        </a>
+        <a href={t.social.youtube} target="_blank" rel="noopener noreferrer" class="text-white hover:opacity-80 transition-opacity" aria-label="YouTube">
+          <Youtube class="w-6 h-6" />
+        </a>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="text-white font-bold text-base md:text-xl mb-4 md:mb-8">{t.linksTitle}</h3>
+      <ul class="space-y-2 md:space-y-4">
+        <li>
+          <a href={`/${lang}#sobre`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity">{t.links.about}</a>
+        </li>
+        <li>
+          <a href={`/${lang}#servicos`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity">{t.links.services}</a>
+        </li>
+        <li>
+          <a href={`/${lang}#cases`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity">{t.links.cases}</a>
+        </li>
+        <li>
+          <a href={`/${lang}/contato`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity">{t.links.contact}</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Contato -->
+    <div>
+      <h3 class="text-white font-bold text-base md:text-xl mb-4 md:mb-8">{t.contactTitle}</h3>
+      <ul class="space-y-2 md:space-y-4">
+        <li>
+          <a href={`mailto:${t.contact.email}`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity flex items-center gap-2">
+            <Mail class="w-4 h-4 shrink-0" />
+            {t.contact.email}
+          </a>
+        </li>
+        <li>
+          <a href={`tel:${t.contact.phone}`} class="text-white text-sm md:text-base hover:opacity-80 transition-opacity flex items-center gap-2">
+            <Phone class="w-4 h-4 shrink-0" />
+            {t.contact.phone}
+          </a>
+        </li>
+        <li>
+          <span class="text-white text-sm md:text-base flex items-start gap-2">
+            <MapPin class="w-4 h-4 shrink-0 mt-1" />
+            {t.contact.address}
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Divisor -->
+  <div class="h-px bg-white/20 mt-12 md:mt-16"></div>
+
+  <!-- Copyright -->
+  <div class="flex flex-col md:flex-row justify-between items-center mt-8 gap-4">
+    <p class="text-white text-xs md:text-sm opacity-80">
+      {t.copyright}
+    </p>
+    <div class="flex gap-4 md:gap-8">
+      <a href={`/${lang}/privacidade`} class="text-white text-xs md:text-sm opacity-80 hover:opacity-100 transition-opacity">
+        {t.privacy}
+      </a>
+      <a href={`/${lang}/termos`} class="text-white text-xs md:text-sm opacity-80 hover:opacity-100 transition-opacity">
+        {t.terms}
+      </a>
+    </div>
+  </div>
+
+</footer>

@@ -1,0 +1,24 @@
+{
+  "description": "Mira Marketing transforma estrategia en resultado. Somos la agencia que apunta al crecimiento de tu empresa.",
+  "linksTitle": "Navegación",
+  "links": {
+    "about": "Sobre nosotros",
+    "services": "Servicios",
+    "cases": "Casos",
+    "contact": "Contacto"
+  },
+  "contactTitle": "Contacto",
+  "contact": {
+    "email": "contacto@miramarketing.com.br",
+    "phone": "+55 45 99999-9999",
+    "address": "Foz do Iguaçu, PR - Brasil"
+  },
+  "social": {
+    "instagram": "https://instagram.com/miramarketing",
+    "linkedin": "https://linkedin.com/company/miramarketing",
+    "youtube": "https://youtube.com/@miramarketing"
+  },
+  "copyright": "© 2025 Mira Marketing. Todos los derechos reservados.",
+  "privacy": "Política de Privacidad",
+  "terms": "Términos de Uso"
+}

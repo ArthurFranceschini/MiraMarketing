@@ -1,0 +1,84 @@
+{
+  "title": "Los resultados son lo que importa para nosotros",
+  "subtitle": "Mira estructura tu empresa con soluciones a medida. Contrata servicios que realmente apuntan al crecimiento de tu empresa.",
+  "services": {
+    "branding": {
+      "title": "Construye una marca que sea elegida",
+      "name": "Branding y posicionamiento",
+      "description": "Sé recordado, deseado y reconocido en tu mercado. Creamos marcas fuertes, con identidad visual, posicionamiento y comunicación alineados al público correcto y a tus objetivos de negocio.",
+      "href": "#branding"
+    },
+    "seo": {
+      "title": "Está siempre entre los 3 primeros",
+      "name": "SEO & Contenido",
+      "description": "Sé el primero en aparecer en las búsquedas de Google con estrategias de SEO comprobadas y contenido desarrollado.",
+      "href": "#seo"
+    },
+    "planning": {
+      "title": "Crece con dirección y números claros",
+      "name": "Planificación estratégica & consultoría empresarial",
+      "description": "Transforma metas en planes ejecutables y decisiones en resultados reales. Estructuramos crecimiento, embudo, metas, métricas y procesos para que tu empresa venda más, con previsibilidad y control.",
+      "href": "#planificacion"
+    },
+    "consulting": {
+      "title": "Destaca tu empresa con una comunicación profesional",
+      "name": "Diseño gráfico & creativo",
+      "description": "Transmite credibilidad en cada detalle visual. Desarrollamos artes, campañas, presentaciones y materiales que fortalecen tu marca y aumentan el impacto de tu comunicación.",
+      "href": "#consultoria"
+    },
+    "design": {
+      "title": "Destaca tu empresa con una comunicación profesional",
+      "name": "Diseño gráfico & creativo",
+      "description": "Transmite credibilidad en cada detalle visual. Desarrollamos artes, campañas, presentaciones y materiales que fortalecen tu marca y aumentan el impacto de tu comunicación.",
+      "href": "#diseno"
+    },
+    "social": {
+      "title": "Transforma seguidores en oportunidades reales",
+      "name": "Gestión de redes sociales",
+      "description": "Construye presencia, autoridad y relación con tu público. Planificamos, creamos y gestionamos contenidos estratégicos para atraer, enganchar y preparar al cliente para la compra.",
+      "href": "#social"
+    },
+    "traffic": {
+      "title": "Atrae leads calificados todos los días",
+      "name": "Gestión de tráfico pago",
+      "description": "Vende más con anuncios inteligentes y públicos bien segmentados. Creamos, gestionamos y optimizamos campañas en GMN, Instagram, Facebook y otras plataformas enfocadas en conversión y retorno sobre inversión.",
+      "href": "#trafico"
+    },
+    "dev": {
+      "title": "Convierte visitas en clientes",
+      "name": "Desarrollo Web & Tecnología",
+      "description": "Ten una presencia digital que realmente vende. Desarrollamos sitios, landing pages, e-commerces y sistemas rápidos, responsivos y pensados para conversión.",
+      "href": "#desarrollo"
+    },
+    "automation": {
+      "title": "Vende incluso cuando tu equipo esté offline",
+      "name": "Automatización & IA",
+      "description": "Atiende, califica y acompaña leads 24h por día. Implementamos chatbots, embudos automatizados, WhatsApp inteligente y sistemas que reducen costos y aumentan eficiencia.",
+      "href": "#automatizacion"
+    },
+    "crm": {
+      "title": "Monta una operación que vende de forma previsible",
+      "name": "Estructuración comercial y CRM",
+      "description": "Deja de depender de la suerte para vender. Creamos procesos comerciales, embudos, scripts, entrenamientos y automatizaciones para aumentar conversión y ticket promedio.",
+      "href": "#crm"
+    },
+    "launches": {
+      "title": "Lanza con estrategia, no improvisando",
+      "name": "Lanzamientos & Productos",
+      "description": "Transforma ideas en facturación. Cuidamos toda la estructura: oferta, embudo, páginas, anuncios, automatizaciones y seguimiento de resultados.",
+      "href": "#lanzamientos"
+    },
+    "licensing": {
+      "title": "Transforma tu marca en nuevas fuentes de ingresos",
+      "name": "Licenciamiento y expansión comercial",
+      "description": "Escala sin aumentar costos operacionales. Estructuramos productos licenciados, contratos, estrategia comercial y posicionamiento para ampliar tu alcance.",
+      "href": "#licenciamiento"
+    },
+    "audiovisual": {
+      "title": "Valoriza tu marca con contenido de alto nivel",
+      "name": "Audiovisual – MIRA Studio",
+      "description": "Producimos contenidos con drone, videos, fotos, podcasts y contenidos profesionales con estructura propia, equipos de punta y calidad superior.",
+      "href": "#audiovisual"
+    }
+  }
+}

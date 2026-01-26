@@ -1,0 +1,55 @@
+---
+import { ArrowUpRight } from '@lucide/astro';
+
+interface Props {
+  icon: any;
+  title: string;
+  serviceName: string;
+  description: string;
+  href?: string;
+}
+
+const { icon: Icon, title, serviceName, description, href = '#' } = Astro.props;
+---
+
+<a 
+  href={href}
+  class="service-card block rounded-lg p-8 h-full fade-in transition-transform duration-300 hover:scale-[1.02]"
+>
+  <div class="flex justify-between items-start">
+    <span class="service-icon">
+      <Icon class="w-8 h-8" />
+    </span>
+    <ArrowUpRight class="w-6 h-6 text-gray-400" />
+  </div>
+  
+  <h3 class="text-base md:text-xl font-bold mt-4">{title}</h3>
+  
+  <p class="text-xs md:text-base font-light mt-2">{serviceName}</p>
+  
+  <p class="text-sm md:text-base mt-2">{description}</p>
+</a>
+
+<style>
+  .service-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .service-icon :global(svg) {
+    stroke: url(#service-icon-gradient);
+  }
+</style>

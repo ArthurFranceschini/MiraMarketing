@@ -1,0 +1,114 @@
+---
+interface Props {
+  lang: 'pt' | 'es';
+}
+
+const { lang } = Astro.props;
+
+import CaseCard from './CaseCard.astro';
+import casesData from '../data/cases.json';
+
+import ptCases from '../i18n/pt/cases.json';
+import esCases from '../i18n/es/cases.json';
+
+const t = lang === 'pt' ? ptCases : esCases;
+const cases = casesData.cases;
+---
+
+<section 
+  id="cases" 
+  class="px-8 py-16 md:px-32 md:py-32" 
+  aria-labelledby="cases-heading"
+>
+  
+  <div class="text-center mb-8 md:mb-16">
+    <h2 
+      id="cases-heading" 
+      class="text-2xl md:text-5xl font-bold tracking-tight fade-in"
+    >
+      <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">{t.title}</span>
+    </h2>
+    
+    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in">{t.subtitle}</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16">
+    {cases.map((caseItem, index) => (
+      <div class="card-wrapper fade-in" data-index={index}>
+        <CaseCard
+          image={caseItem.image}
+          imageAlt={caseItem.name[lang]}
+          name={caseItem.name[lang]}
+          description={caseItem.description[lang]}
+          tags={caseItem.tags}
+          slug={caseItem.id}
+          lang={lang}
+        />
+      </div>
+    ))}
+  </div>
+
+</section>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-wrapper {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+</style>
+
+<script>
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 150);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.fade-in').forEach((el) => {
+    fadeObserver.observe(el);
+  });
+
+  // Parallax shrink effect
+  const cards = document.querySelectorAll('.card-wrapper');
+  
+  function handleScroll() {
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const cardCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const distance = Math.abs(cardCenter - viewportCenter);
+      const maxDistance = windowHeight / 2;
+      
+      const scale = 1 - (distance / maxDistance) * 0.15;
+      const clampedScale = Math.max(0.85, Math.min(1, scale));
+      
+      const opacity = 1 - (distance / maxDistance) * 0.3;
+      const clampedOpacity = Math.max(0.7, Math.min(1, opacity));
+      
+      (card as HTMLElement).style.transform = `scale(${clampedScale})`;
+      (card as HTMLElement).style.opacity = `${clampedOpacity}`;
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>

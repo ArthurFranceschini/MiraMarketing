@@ -1,0 +1,43 @@
+{
+  "cases": [
+    {
+      "id": "projeto-alpha",
+      "image": "/cases/case-1.jpg",
+      "name": {
+        "pt": "Projeto Alpha",
+        "es": "Proyecto Alpha"
+      },
+      "description": {
+        "pt": "Rebranding completo e lançamento digital para startup de tecnologia.",
+        "es": "Rebranding completo y lanzamiento digital para startup de tecnología."
+      },
+      "tags": ["Branding", "Digital", "Lançamento"]
+    },
+    {
+      "id": "projeto-beta",
+      "image": "/cases/case-2.jpg",
+      "name": {
+        "pt": "Projeto Beta",
+        "es": "Proyecto Beta"
+      },
+      "description": {
+        "pt": "Estratégia de tráfego pago que gerou 500% de ROI.",
+        "es": "Estrategia de tráfico pago que generó 500% de ROI."
+      },
+      "tags": ["Tráfego", "Performance", "ROI"]
+    },
+    {
+      "id": "projeto-gamma",
+      "image": "/cases/case-3.jpg",
+      "name": {
+        "pt": "Projeto Gamma",
+        "es": "Proyecto Gamma"
+      },
+      "description": {
+        "pt": "Automação de marketing que triplicou a geração de leads.",
+        "es": "Automatización de marketing que triplicó la generación de leads."
+      },
+      "tags": ["Automação", "Leads", "CRM"]
+    }
+  ]
+}

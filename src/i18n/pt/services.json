@@ -1,0 +1,84 @@
+{
+  "title": "Resultados são o que importam para nós",
+  "subtitle": "A Mira estrutura sua empresa com soluções feitas sob medida. Contrate serviços que realmente miram o crescimento da sua empresa.",
+  "services": {
+    "branding": {
+      "title": "Construa uma marca que seja escolhida",
+      "name": "Branding e posicionamento",
+      "description": "Seja lembrado, desejado e reconhecido no seu mercado. Criamos marcas fortes, com identidade visual, posicionamento e comunicação alinhados ao público certo e aos seus objetivos de negócio.",
+      "href": "#branding"
+    },
+    "seo": {
+      "title": "Esteja sempre entre os 3 primeiros",
+      "name": "SEO & Conteúdo",
+      "description": "Seja o primeiro a aparecer nas pesquisas do Google com estratégias de SEO comprovadas e conteúdo desenvolvido.",
+      "href": "#seo"
+    },
+    "planning": {
+      "title": "Cresça com direção e números claros",
+      "name": "Planejamento estratégico & consultoria empresarial",
+      "description": "Transforme metas em planos executáveis e decisões em resultados reais. Estruturamos crescimento, funil, metas, métricas e processos para sua empresa vender mais, com previsibilidade e controle.",
+      "href": "#planejamento"
+    },
+    "consulting": {
+      "title": "Destaque sua empresa com uma comunicação profissional",
+      "name": "Design gráfico & criativo",
+      "description": "Passe credibilidade em cada detalhe visual. Desenvolvemos artes, campanhas, apresentações e materiais que fortalecem sua marca e aumentam o impacto da sua comunicação.",
+      "href": "#consultoria"
+    },
+    "design": {
+      "title": "Destaque sua empresa com uma comunicação profissional",
+      "name": "Design gráfico & criativo",
+      "description": "Passe credibilidade em cada detalhe visual. Desenvolvemos artes, campanhas, apresentações e materiais que fortalecem sua marca e aumentam o impacto da sua comunicação.",
+      "href": "#design"
+    },
+    "social": {
+      "title": "Transforme seguidores em oportunidades reais",
+      "name": "Gestão de redes sociais",
+      "description": "Construa presença, autoridade e relacionamento com seu público. Planejamos, criamos e gerenciamos conteúdos estratégicos para atrair, engajar e preparar o cliente para a compra.",
+      "href": "#social"
+    },
+    "traffic": {
+      "title": "Atraia leads qualificados todos os dias",
+      "name": "Gestão de tráfego pago",
+      "description": "Venda mais com anúncios inteligentes e públicos bem segmentados. Criamos, gerenciamos e otimizamos campanhas no GMN, Instagram, Facebook e outras plataformas focadas em conversão e retorno sobre investimento.",
+      "href": "#trafego"
+    },
+    "dev": {
+      "title": "Converta visitas em clientes",
+      "name": "Desenvolvimento Web & Tecnologia",
+      "description": "Tenha uma presença digital que realmente vende. Desenvolvemos sites, landing pages, e-commerces e sistemas rápidos, responsivos e pensados para conversão.",
+      "href": "#desenvolvimento"
+    },
+    "automation": {
+      "title": "Venda mesmo quando sua equipe estiver offline",
+      "name": "Automação & IA",
+      "description": "Atenda, qualifique e acompanhe leads 24h por dia. Implantamos chatbots, funis automatizados, WhatsApp inteligente e sistemas que reduzem custos e aumentam eficiência.",
+      "href": "#automacao"
+    },
+    "crm": {
+      "title": "Monte uma operação que vende de forma previsível",
+      "name": "Estruturação comercial e CRM",
+      "description": "Pare de depender da sorte para vender. Criamos processos comerciais, funis, scripts, treinamentos e automações para aumentar conversão e ticket médio.",
+      "href": "#crm"
+    },
+    "launches": {
+      "title": "Lance com estratégia, não no improviso",
+      "name": "Lançamentos & Produtos",
+      "description": "Transforme ideias em faturamento. Cuidamos de toda a estrutura: oferta, funil, páginas, anúncios, automações e acompanhamento de resultados.",
+      "href": "#lancamentos"
+    },
+    "licensing": {
+      "title": "Transforme sua marca em novas fontes de receita",
+      "name": "Licenciamento e expansão comercial",
+      "description": "Escale sem aumentar custos operacionais. Estruturamos produtos licenciados, contratos, estratégia comercial e posicionamento para ampliar seu alcance.",
+      "href": "#licenciamento"
+    },
+    "audiovisual": {
+      "title": "Valorize sua marca com conteúdo de alto nível",
+      "name": "Audiovisual – MIRA Studio",
+      "description": "Produzimos conteúdos com drone, vídeos, fotos, podcasts e conteúdos profissionais com estrutura própria, equipamentos de ponta e qualidade superior.",
+      "href": "#audiovisual"
+    }
+  }
+}
