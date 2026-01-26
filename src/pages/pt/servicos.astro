@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Services from '../../components/Services.astro';
+
+const lang = 'pt';
+
+const breadcrumbItems = [
+  { label: 'Home', href: `/${lang}/` },
+  { label: 'Serviços' }
+];
+---
+
+<Layout
+  lang={lang}
+  title="Serviços | Mira Marketing"
+  description="Conheça todos os serviços da Mira Marketing"
+>
+  <Header lang={lang} />
+  <Breadcrumb items={breadcrumbItems} />
+  <Services lang={lang} />
+  <Footer lang={lang} />
+</Layout>

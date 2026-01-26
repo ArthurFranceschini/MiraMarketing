@@ -1,5 +1,6 @@
 ---
 import { Menu, X, ChevronRight, Shield, Search, Target, Handshake, Palette, Instagram, TrafficCone, CodeXml, BrainCircuit, Funnel, Rocket, Maximize2, Clapperboard } from '@lucide/astro'
+import casesData from '../data/cases.json';
 
 interface Props {
   lang: 'pt' | 'es';
@@ -11,6 +12,8 @@ import ptHeader from '../i18n/pt/header.json';
 import esHeader from '../i18n/es/header.json';
 
 const t = lang === 'pt' ? ptHeader : esHeader;
+
+const latestCases = casesData.cases.slice(-3).reverse();
 ---
 
 <header class="flex items-center justify-between px-8 md:px-32 py-8">
@@ -57,8 +60,8 @@ const t = lang === 'pt' ? ptHeader : esHeader;
       <a href={`/${lang}/${t.servicesUrl}`} class="animate-fade-in-down" style="animation-delay: 150ms;">{t.services}</a>
       <a href={`/${lang}/${t.portfolioUrl}`} class="animate-fade-in-down" style="animation-delay: 200ms;">{t.portfolio}</a>
       <a href={`/${lang}/${t.blogUrl}`} class="animate-fade-in-down" style="animation-delay: 250ms;">{t.blog}</a>
-      <a href={`/${lang}/${t.contactUrl}`} class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down" style="animation-delay: 300ms;">
-        <span class="flex items-center justify-center px-4 py-1 bg-white rounded-md font-bold">
+      <a href={`/${lang}/${t.contactUrl}`} class="cta-button relative rounded-md inline-block animate-fade-in-down" style="animation-delay: 300ms;">
+        <span class="flex items-center justify-center px-4 py-1 rounded-md font-bold">
           {t.contact}
         </span>
       </a>
@@ -183,15 +186,39 @@ const t = lang === 'pt' ? ptHeader : esHeader;
     
     <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
     
-    <a href={`/${lang}/${t.portfolioUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.portfolio}</a>
+    <a href={`/${lang}/${t.portfolioUrl}`} class="py-4 text-base px-8 menu-item opacity-0 font-bold gradient-text">{t.portfolio}</a>
+    
+    <div class="px-8 pb-4 menu-item opacity-0">
+      <div class="flex flex-col gap-3">
+        {latestCases.map((caseItem) => (
+          <a href={`/${lang}/cases/${caseItem.id}`} class="case-card flex items-center rounded-lg overflow-hidden">
+            <img 
+              src={caseItem.image} 
+              alt={caseItem.name[lang]}
+              class="w-16 h-16 object-cover shrink-0"
+            />
+            <div class="px-4 py-2 flex flex-col justify-center gap-1">
+              <h3 class="text-sm font-bold leading-tight">{caseItem.name[lang]}</h3>
+              <p class="text-[8px] font-bold leading-tight line-clamp-2">{caseItem.description[lang]}</p>
+              <div class="flex flex-wrap gap-1">
+                {caseItem.tags.slice(0, 3).map((tag) => (
+                  <span class="text-[8px] font-light">{tag}</span>
+                ))}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+    
     <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
     
     <a href={`/${lang}/${t.blogUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.blog}</a>
     <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
     
     <div class="px-8 py-4 menu-item opacity-0">
-      <a href={`/${lang}/${t.contactUrl}`} class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] block">
-        <span class="flex items-center justify-center py-2 bg-white rounded-md font-bold">
+      <a href={`/${lang}/${t.contactUrl}`} class="cta-button relative rounded-md block">
+        <span class="flex items-center justify-center py-2 rounded-md font-bold">
           {t.contact}
         </span>
       </a>
@@ -247,6 +274,49 @@ const t = lang === 'pt' ? ptHeader : esHeader;
   #menu-toggle.active {
     transform: rotate(180deg);
   }
+
+  .cta-button {
+    position: relative;
+    background: transparent;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .case-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .case-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .gradient-text {
+  background: linear-gradient(to right, #FF0A0A, #0004FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 </style>
 
 <script>

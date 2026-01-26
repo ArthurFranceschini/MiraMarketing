@@ -3,6 +3,12 @@
     {
       "id": "projeto-alpha",
       "image": "/cases/case-1.jpg",
+      "heroImage": "/cases/case-1-hero.jpg",
+      "problemImage1": "/cases/case-1-problem-1.jpg",
+      "problemImage2": "/cases/case-1-problem-2.jpg",
+      "solutionImage": "/cases/case-1-solution.jpg",
+      "resultsImage": "/cases/case-1-results.jpg",
+      "projectLink": "https://alphatech.com.br",
       "name": {
         "pt": "Projeto Alpha",
         "es": "Proyecto Alpha"
@@ -11,33 +17,55 @@
         "pt": "Rebranding completo e lançamento digital para startup de tecnologia.",
         "es": "Rebranding completo y lanzamiento digital para startup de tecnología."
       },
+      "heroDescription": {
+        "pt": "A Alpha Tech precisava se reposicionar no mercado para atrair investidores e escalar suas operações.",
+        "es": "Alpha Tech necesitaba reposicionarse en el mercado para atraer inversores y escalar sus operaciones."
+      },
+      "problem": {
+        "pt": "A empresa tinha um produto excelente, mas sua marca não transmitia credibilidade. O site era desatualizado e os leads qualificados eram escassos.",
+        "es": "La empresa tenía un producto excelente, pero su marca no transmitía credibilidad. El sitio estaba desactualizado y los leads calificados eran escasos."
+      },
+      "solution": {
+        "pt": "Criamos uma nova identidade visual que posicionou a Alpha Tech como líder em inovação.",
+        "es": "Creamos una nueva identidad visual que posicionó a Alpha Tech como líder en innovación."
+      },
+      "solutionPoints": {
+        "pt": [
+          "Nova identidade visual completa",
+          "Site institucional focado em conversão",
+          "Campanhas de tráfego pago segmentadas",
+          "Automação de marketing e CRM"
+        ],
+        "es": [
+          "Nueva identidad visual completa",
+          "Sitio institucional enfocado en conversión",
+          "Campañas de tráfico pago segmentadas",
+          "Automatización de marketing y CRM"
+        ]
+      },
+      "resultsDescription": {
+        "pt": "Em 6 meses, a Alpha Tech triplicou o número de leads qualificados.",
+        "es": "En 6 meses, Alpha Tech triplicó el número de leads calificados."
+      },
+      "results": [
+        {
+          "number": "+300%",
+          "label": { "pt": "Leads qualificados", "es": "Leads calificados" }
+        },
+        {
+          "number": "R$2M",
+          "label": { "pt": "Investimento captado", "es": "Inversión captada" }
+        },
+        {
+          "number": "+150%",
+          "label": { "pt": "Tráfego orgânico", "es": "Tráfico orgánico" }
+        },
+        {
+          "number": "45%",
+          "label": { "pt": "Taxa de conversão", "es": "Tasa de conversión" }
+        }
+      ],
       "tags": ["Branding", "Digital", "Lançamento"]
-    },
-    {
-      "id": "projeto-beta",
-      "image": "/cases/case-2.jpg",
-      "name": {
-        "pt": "Projeto Beta",
-        "es": "Proyecto Beta"
-      },
-      "description": {
-        "pt": "Estratégia de tráfego pago que gerou 500% de ROI.",
-        "es": "Estrategia de tráfico pago que generó 500% de ROI."
-      },
-      "tags": ["Tráfego", "Performance", "ROI"]
-    },
-    {
-      "id": "projeto-gamma",
-      "image": "/cases/case-3.jpg",
-      "name": {
-        "pt": "Projeto Gamma",
-        "es": "Proyecto Gamma"
-      },
-      "description": {
-        "pt": "Automação de marketing que triplicou a geração de leads.",
-        "es": "Automatización de marketing que triplicó la generación de leads."
-      },
-      "tags": ["Automação", "Leads", "CRM"]
     }
   ]
 }

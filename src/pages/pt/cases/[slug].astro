@@ -1,0 +1,220 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import { AlertCircle, Lightbulb, Trophy } from '@lucide/astro';
+import casesData from '../../../data/cases.json';
+import ptCasePage from '../../../i18n/pt/casePage.json';
+
+export function getStaticPaths() {
+  const cases = [
+    { id: "projeto-alpha" },
+    { id: "projeto-beta" },
+    { id: "projeto-gamma" }
+  ];
+  
+  return cases.map(c => ({
+    params: { slug: c.id }
+  }));
+}
+
+const { slug } = Astro.params;
+const caseData = casesData.cases.find(c => c.id === slug);
+const lang = 'pt';
+const t = ptCasePage;
+
+if (!caseData) {
+  return Astro.redirect('/pt');
+}
+
+const breadcrumbItems = [
+  { label: 'Home', href: `/${lang}/` },
+  { label: 'Cases', href: `/${lang}/cases` },
+  { label: caseData.name[lang] }
+];
+---
+
+<Layout
+  lang={lang}
+  title={`${caseData.name[lang]} | Mira Marketing`}
+  description={caseData.description[lang]}
+>
+  <Header lang={lang} />
+  <Breadcrumb items={breadcrumbItems} />
+  
+  <!-- Hero -->
+  <section class="px-8 py-16 md:px-32 md:py-32 min-h-[60vh] flex items-center relative overflow-hidden">
+    <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+      <div class="w-150 h-150 bg-[#0004FF] opacity-5 rounded-full blur-[150px]"></div>
+    </div>
+    
+    <div class="relative z-10 w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+        <div class="fade-in">
+          <div class="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8">
+            {caseData.tags.map((tag) => (
+              <span class="text-xs md:text-sm font-light px-3 py-1 rounded-full border border-gray-300">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <span class="text-sm md:text-base font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+            {t.caseStudy}
+          </span>
+          <h1 class="text-2xl md:text-5xl font-bold tracking-tight mt-4">
+            <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+              {caseData.name[lang]}
+            </span>
+          </h1>
+          <p class="text-sm md:text-xl mt-4 md:mt-8">
+            {caseData.heroDescription[lang]}
+          </p>
+          
+          <!-- CTA no Hero -->
+          <div class="mt-8">
+            <a href={caseData.projectLink} target="_blank" rel="noopener noreferrer" class="cta-button relative rounded-md inline-block">
+              <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
+                {t.ctaButton}
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="fade-in">
+          <img 
+            src={caseData.heroImage} 
+            alt={caseData.name[lang]}
+            class="w-full h-64 md:h-96 object-cover rounded-lg"
+            loading="eager"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O Problema -->
+  <section class="px-8 py-16 md:px-32 md:py-32 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8">
+        <AlertCircle class="w-8 h-8 md:w-12 md:h-12 text-white" />
+      </div>
+      <h2 class="text-2xl md:text-5xl font-bold tracking-tight">
+        <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+          {t.problemTitle}
+        </span>
+      </h2>
+      <p class="text-sm md:text-xl mt-4 md:mt-8">
+        {caseData.problem[lang]}
+      </p>
+    </div>
+  </section>
+
+  <!-- Nossa Solução -->
+  <section class="px-8 py-16 md:px-32 md:py-32">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+      <div class="fade-in order-2 md:order-1">
+        <img 
+          src={caseData.solutionImage} 
+          alt={t.solutionImageAlt}
+          class="w-full h-64 md:h-96 object-cover rounded-lg"
+          loading="lazy"
+        />
+      </div>
+      <div class="fade-in order-1 md:order-2">
+        <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8">
+          <Lightbulb class="w-8 h-8 md:w-12 md:h-12 text-white" />
+        </div>
+        <h2 class="text-2xl md:text-5xl font-bold tracking-tight">
+          <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+            {t.solutionTitle}
+          </span>
+        </h2>
+        <p class="text-sm md:text-xl mt-4 md:mt-8">
+          {caseData.solution[lang]}
+        </p>
+        <ul class="mt-4 md:mt-8 space-y-2 md:space-y-4">
+          {caseData.solutionPoints[lang].map((point) => (
+            <li class="flex items-start gap-2 text-sm md:text-base">
+              <span class="w-2 h-2 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mt-2 shrink-0"></span>
+              {point}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultados -->
+  <section class="px-8 py-16 md:px-32 md:py-32 bg-linear-to-r from-[#0004FF] to-[#FF0A0A]">
+    <div class="max-w-4xl mx-auto text-center fade-in">
+      <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white mb-8">
+        <Trophy class="w-8 h-8 md:w-12 md:h-12 text-[#0004FF]" />
+      </div>
+      <h2 class="text-2xl md:text-5xl font-bold tracking-tight text-white">
+        {t.resultsTitle}
+      </h2>
+      <p class="text-sm md:text-xl mt-4 md:mt-8 text-white/90">
+        {caseData.resultsDescription[lang]}
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 md:mt-32">
+      {caseData.results.map((result) => (
+        <div class="text-center fade-in">
+          <span class="text-3xl md:text-6xl font-bold text-white">{result.number}</span>
+          <p class="text-xs md:text-base text-white/80 mt-2">{result.label[lang]}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .cta-button {
+    position: relative;
+    background: transparent;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.fade-in').forEach((el) => {
+    fadeObserver.observe(el);
+  });
+</script>

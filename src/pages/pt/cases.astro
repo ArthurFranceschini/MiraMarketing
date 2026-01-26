@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Cases from '../../components/cases.astro';
+
+const lang = 'pt';
+
+const breadcrumbItems = [
+  { label: 'Home', href: `/${lang}/` },
+  { label: 'Cases' }
+];
+---
+
+<Layout
+  lang={lang}
+  title="Cases em Destaque | Mira Marketing"
+  description="Conheça os cases de sucesso da Mira Marketing"
+>
+  <Header lang={lang} />
+  <Breadcrumb items={breadcrumbItems} />
+  <Cases lang={lang} />
+  <Footer lang={lang} />
+</Layout>
