@@ -1,0 +1,40 @@
+{
+  "title": {
+    "line1": "Mira o Alvo.",
+    "line2": "Alcança o Resultado."
+  },
+  "subtitle": "Combinamos estratégia, branding, dados, tráfego, tecnologia e IA para transformar marketing em re$ultado real.",
+  "chatBubble": "Como podemos te ajudar hoje?",
+  "chatLink": "contato",
+  "contactButton": "Contate-nos",
+  "heroLabel": "Introdução",
+  "team": {
+    "member1": "Foto - Marjane Dotto - Social Media",
+    "member2": "Foto - Arthur Franceschini - Desenvolvedor e Designer",
+    "member3": "Foto - Leonardo Rocha - Gestor de Tráfego",
+    "member4": "Foto - Jheila Blanc - Filmmaker",
+    "member5": "Foto - Emerson - Filmmaker"
+  },
+  "stats": {
+    "projects": {
+      "number": "+40",
+      "line1": "Projetos",
+      "line2": "Finalizados"
+    },
+    "revenue": {
+      "number": "+150M",
+      "line1": "de R$",
+      "line2": "Faturados"
+    },
+    "leads": {
+      "number": "+20.000",
+      "line1": "Leads",
+      "line2": "Gerados"
+    },
+    "roi": {
+      "number": "+200%",
+      "line1": "ROI",
+      "line2": "médio"
+    }
+  }
+}

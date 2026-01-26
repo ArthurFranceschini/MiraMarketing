@@ -1,0 +1,32 @@
+{
+  "about": "Sobre nós",
+  "aboutUrl": "sobre",
+  "services": "Serviços",
+  "servicesUrl": "servicos",
+  "portfolio": "Portfolio",
+  "portfolioUrl": "portfolio",
+  "blog": "Blog",
+  "blogUrl": "blog",
+  "contact": "Contate-nos",
+  "contactUrl": "contato",
+  "menuLabel": "Menu principal",
+  "langLabel": "Seletor de idioma",
+  "homeLabel": "Mira Marketing - Início",
+  "menuTitle": "Menu",
+  "closeMenu": "Fechar menu",
+  "servicesList": {
+    "branding": "Branding e Posicionamento",
+    "seo": "SEO & Conteúdo",
+    "planning": "Planejamento estratégico",
+    "consulting": "Consultoria Empresarial",
+    "design": "Design gráfico & criativo",
+    "social": "Gestão de redes sociais",
+    "traffic": "Gestão de tráfego pago",
+    "dev": "Desenvolvimento Web & Tecnologia",
+    "automation": "Automação & IA",
+    "crm": "Estruturação comercial e CRM",
+    "launches": "Lançamentos & Produtos",
+    "licensing": "Licenciamento e expansão comercial",
+    "audiovisual": "Audiovisual"
+  }
+}

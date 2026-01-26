@@ -1,0 +1,325 @@
+---
+import { Menu, X, ChevronRight, Shield, Search, Target, Handshake, Palette, Instagram, TrafficCone, CodeXml, BrainCircuit, Funnel, Rocket, Maximize2, Clapperboard } from '@lucide/astro'
+
+interface Props {
+  lang: 'pt' | 'es';
+}
+
+const { lang } = Astro.props;
+
+import ptHeader from '../i18n/pt/header.json';
+import esHeader from '../i18n/es/header.json';
+
+const t = lang === 'pt' ? ptHeader : esHeader;
+---
+
+<header class="flex items-center justify-between px-8 md:px-32 py-8">
+
+  <a href={`/${lang}/`} aria-label={t.homeLabel} class="animate-fade-in-down" style="animation-delay: 0ms;">
+    <img src="/logo.svg" alt="Mira Marketing" class="h-8 md:h-16 w-auto" />
+  </a>
+
+  <div class="flex items-center gap-3 md:hidden">
+    <a 
+      href={lang === 'pt' ? '/es/' : '/pt/'} 
+      hreflang={lang === 'pt' ? 'es' : 'pt'}
+      lang={lang === 'pt' ? 'es' : 'pt'}
+      class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down"
+      style="animation-delay: 100ms;"
+      aria-label={lang === 'pt' ? 'Cambiar a Español' : 'Mudar para Português'}
+    >
+      <span class="flex items-center justify-center w-8 h-8 bg-white rounded-md">
+        {lang === 'pt' ? (
+          <span class="fi fi-py w-4 h-4" aria-hidden="true"></span>
+        ) : (
+          <span class="fi fi-br w-4 h-4" aria-hidden="true"></span>
+        )}
+      </span>
+    </a>
+
+    <button 
+      class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down transition-transform duration-300"
+      style="animation-delay: 200ms;"
+      aria-label={t.menuTitle}
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      id="menu-toggle"
+    >
+      <span class="flex items-center justify-center w-8 h-8 bg-white rounded-md">
+        <Menu class="w-4 h-4" aria-hidden="true" />
+      </span>
+    </button>
+  </div>
+
+  <div class="hidden md:flex items-center gap-8">
+    <nav aria-label={t.menuLabel} class="flex items-center gap-8 text-base lg:text-2xl whitespace-nowrap">
+      <a href={`/${lang}/${t.aboutUrl}`} class="animate-fade-in-down" style="animation-delay: 100ms;">{t.about}</a>
+      <a href={`/${lang}/${t.servicesUrl}`} class="animate-fade-in-down" style="animation-delay: 150ms;">{t.services}</a>
+      <a href={`/${lang}/${t.portfolioUrl}`} class="animate-fade-in-down" style="animation-delay: 200ms;">{t.portfolio}</a>
+      <a href={`/${lang}/${t.blogUrl}`} class="animate-fade-in-down" style="animation-delay: 250ms;">{t.blog}</a>
+      <a href={`/${lang}/${t.contactUrl}`} class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down" style="animation-delay: 300ms;">
+        <span class="flex items-center justify-center px-4 py-1 bg-white rounded-md font-bold">
+          {t.contact}
+        </span>
+      </a>
+    </nav>
+
+    <a 
+      href={lang === 'pt' ? '/es/' : '/pt/'} 
+      hreflang={lang === 'pt' ? 'es' : 'pt'}
+      lang={lang === 'pt' ? 'es' : 'pt'}
+      class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down"
+      style="animation-delay: 350ms;"
+      aria-label={lang === 'pt' ? 'Cambiar a Español' : 'Mudar para Português'}
+    >
+      <span class="flex items-center justify-center w-10 h-10 bg-white rounded-md">
+        {lang === 'pt' ? (
+          <span class="fi fi-py w-6 h-6" aria-hidden="true"></span>
+        ) : (
+          <span class="fi fi-br w-6 h-6" aria-hidden="true"></span>
+        )}
+      </span>
+    </a>
+  </div>
+
+</header>
+
+<svg class="absolute w-0 h-0" aria-hidden="true">
+  <defs>
+    <linearGradient id="icon-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF0A0A" />
+      <stop offset="100%" stop-color="#0004FF" />
+    </linearGradient>
+  </defs>
+</svg>
+
+<div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden flex-col py-8 md:hidden opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true" aria-label={t.menuTitle}>
+  
+  <div class="flex items-center justify-between mb-4 px-8">
+    <h2 class="text-2xl font-bold menu-item opacity-0">{t.menuTitle}</h2>
+    
+    <button 
+      class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] menu-item opacity-0"
+      aria-label={t.closeMenu}
+      id="menu-close"
+    >
+      <span class="flex items-center justify-center w-8 h-8 bg-white rounded-md">
+        <X class="w-4 h-4" aria-hidden="true" />
+      </span>
+    </button>
+  </div>
+
+  <div class="h-1 bg-linear-to-r from-[#FF0A0A] to-[#0004FF] shrink-0 menu-item opacity-0"></div>
+
+  <nav aria-label={t.menuLabel} class="flex flex-col overflow-y-auto flex-1">
+    
+    <a href={`/${lang}/${t.aboutUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.about}</a>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    
+    <button 
+      class="py-4 text-base flex items-center justify-between w-full text-left px-8 menu-item opacity-0"
+      id="services-toggle"
+      aria-expanded="false"
+      aria-controls="services-dropdown"
+    >
+      {t.services}
+      <ChevronRight class="w-4 h-4 transition-transform duration-300" id="services-chevron" aria-hidden="true" />
+    </button>
+    
+    <div id="services-dropdown" class="flex-col pl-12 pr-8 overflow-hidden max-h-0 transition-all duration-300 ease-in-out" role="region" aria-label={t.services}>
+      <a href={`/${lang}/${t.servicesUrl}/branding`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Shield class="w-4 h-4" /></span>
+        {t.servicesList.branding}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/seo`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Search class="w-4 h-4" /></span>
+        {t.servicesList.seo}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/planejamento`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Target class="w-4 h-4" /></span>
+        {t.servicesList.planning}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/consultoria`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Handshake class="w-4 h-4" /></span>
+        {t.servicesList.consulting}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/design`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Palette class="w-4 h-4" /></span>
+        {t.servicesList.design}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/redes-sociais`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Instagram class="w-4 h-4" /></span>
+        {t.servicesList.social}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/trafego`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><TrafficCone class="w-4 h-4" /></span>
+        {t.servicesList.traffic}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/desenvolvimento`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><CodeXml class="w-4 h-4" /></span>
+        {t.servicesList.dev}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/automacao`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><BrainCircuit class="w-4 h-4" /></span>
+        {t.servicesList.automation}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/crm`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Funnel class="w-4 h-4" /></span>
+        {t.servicesList.crm}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/lancamentos`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Rocket class="w-4 h-4" /></span>
+        {t.servicesList.launches}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/licenciamento`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Maximize2 class="w-4 h-4" /></span>
+        {t.servicesList.licensing}
+      </a>
+      <a href={`/${lang}/${t.servicesUrl}/audiovisual`} class="py-2 text-sm flex items-center gap-3 service-item opacity-0">
+        <span class="service-icon" aria-hidden="true"><Clapperboard class="w-4 h-4" /></span>
+        {t.servicesList.audiovisual}
+      </a>
+    </div>
+    
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    
+    <a href={`/${lang}/${t.portfolioUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.portfolio}</a>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    
+    <a href={`/${lang}/${t.blogUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.blog}</a>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    
+    <div class="px-8 py-4 menu-item opacity-0">
+      <a href={`/${lang}/${t.contactUrl}`} class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] block">
+        <span class="flex items-center justify-center py-2 bg-white rounded-md font-bold">
+          {t.contact}
+        </span>
+      </a>
+    </div>
+    
+  </nav>
+</div>
+
+<style>
+  .service-icon :global(svg) {
+    stroke: url(#icon-gradient);
+  }
+
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in-down {
+    animation: fadeInDown 0.4s ease-out forwards;
+  }
+
+  .menu-item {
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transform: translateY(-10px);
+  }
+
+  .menu-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .service-item {
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transform: translateY(-5px);
+  }
+
+  .service-item.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  #menu-toggle {
+    transition: transform 0.4s ease-out;
+  }
+
+  #menu-toggle.active {
+    transform: rotate(180deg);
+  }
+</style>
+
+<script>
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const servicesToggle = document.getElementById('services-toggle');
+  const servicesDropdown = document.getElementById('services-dropdown');
+  const servicesChevron = document.getElementById('services-chevron');
+  const menuItems = document.querySelectorAll('.menu-item');
+  const serviceItems = document.querySelectorAll('.service-item');
+
+  function openMenu() {
+    mobileMenu?.classList.remove('hidden');
+    mobileMenu?.classList.add('flex');
+    menuToggle?.classList.add('active');
+    menuToggle?.setAttribute('aria-expanded', 'true');
+    
+    setTimeout(() => {
+      mobileMenu?.classList.remove('opacity-0');
+      mobileMenu?.classList.add('opacity-100');
+    }, 10);
+
+    menuItems.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.add('show');
+      }, 80 * index);
+    });
+  }
+
+  function closeMenu() {
+    mobileMenu?.classList.remove('opacity-100');
+    mobileMenu?.classList.add('opacity-0');
+    menuToggle?.classList.remove('active');
+    menuToggle?.setAttribute('aria-expanded', 'false');
+
+    menuItems.forEach((item) => {
+      item.classList.remove('show');
+    });
+
+    setTimeout(() => {
+      mobileMenu?.classList.add('hidden');
+      mobileMenu?.classList.remove('flex');
+    }, 300);
+  }
+
+  function toggleServices() {
+    const isHidden = servicesDropdown?.classList.contains('max-h-0');
+    
+    if (isHidden) {
+      servicesDropdown?.classList.remove('max-h-0');
+      servicesDropdown?.classList.add('max-h-[500px]');
+      servicesChevron?.classList.add('rotate-90');
+      servicesToggle?.setAttribute('aria-expanded', 'true');
+
+      serviceItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('show');
+        }, 50 * index);
+      });
+    } else {
+      servicesDropdown?.classList.add('max-h-0');
+      servicesDropdown?.classList.remove('max-h-[500px]');
+      servicesChevron?.classList.remove('rotate-90');
+      servicesToggle?.setAttribute('aria-expanded', 'false');
+
+      serviceItems.forEach((item) => {
+        item.classList.remove('show');
+      });
+    }
+  }
+
+  menuToggle?.addEventListener('click', openMenu);
+  menuClose?.addEventListener('click', closeMenu);
+  servicesToggle?.addEventListener('click', toggleServices);
+</script>

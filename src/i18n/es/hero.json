@@ -1,0 +1,40 @@
+{
+  "title": {
+    "line1": "Apunta al Objetivo.",
+    "line2": "Alcanza el Resultado."
+  },
+  "subtitle": "Combinamos estrategia, branding, datos, tráfico, tecnología e IA para transformar marketing en re$ultado real.",
+  "chatBubble": "¿Cómo podemos ayudarte hoy?",
+  "chatLink": "contacto",
+  "contactButton": "Contáctenos",
+  "heroLabel": "Introducción",
+  "team": {
+    "member1": "Foto - Marjane Dotto - Social Media",
+    "member2": "Foto - Arthur Franceschini - Desarrollador y Diseñador",
+    "member3": "Foto - Leonardo Rocha - Gestor de Tráfico",
+    "member4": "Foto - Jheila Blanc - Filmmaker",
+    "member5": "Foto - Emerson - Filmmaker"
+  },
+  "stats": {
+    "projects": {
+      "number": "+40",
+      "line1": "Proyectos",
+      "line2": "Finalizados"
+    },
+    "revenue": {
+      "number": "+150M",
+      "line1": "de R$",
+      "line2": "Facturados"
+    },
+    "leads": {
+      "number": "+20.000",
+      "line1": "Leads",
+      "line2": "Generados"
+    },
+    "roi": {
+      "number": "+200%",
+      "line1": "ROI",
+      "line2": "promedio"
+    }
+  }
+}
