@@ -1,0 +1,105 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/footer.astro';
+import Breadcrumb from '../../../components/Breadcrumb.astro';
+import blogData from '../../../data/blog.json';
+
+export function getStaticPaths() {
+  return blogData.posts.map(p => ({
+    params: { slug: p.id }
+  }));
+}
+
+const { slug } = Astro.params;
+const post = blogData.posts.find(p => p.id === slug);
+const lang = 'es';
+
+if (!post) {
+  return Astro.redirect('/es/blog');
+}
+
+const formattedDate = new Date(post.date).toLocaleDateString('es-ES', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric'
+});
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: `/${lang}/` },
+  { label: 'Blog', href: `/${lang}/blog` },
+  { label: post.name[lang] }
+];
+---
+
+<Layout
+  lang={lang}
+  title={`${post.name[lang]} | Mira Marketing`}
+  description={post.excerpt[lang]}
+>
+  <Header lang={lang} />
+  <Breadcrumb items={breadcrumbItems} />
+  
+  <article class="px-8 py-16 md:px-32 md:py-32 max-w-4xl mx-auto">
+    <div class="fade-in">
+      <div class="flex flex-wrap gap-2 mb-4">
+        {post.tags.map((tag) => (
+          <span class="text-xs md:text-sm font-light px-3 py-1 rounded-full border border-gray-300">
+            {tag}
+          </span>
+        ))}
+      </div>
+      
+      <span class="text-sm text-gray-500">{formattedDate}</span>
+      
+      <h1 class="text-2xl md:text-5xl font-bold tracking-tight mt-4">
+        <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+          {post.name[lang]}
+        </span>
+      </h1>
+      
+      <img 
+        src={post.image} 
+        alt={post.name[lang]}
+        class="w-full h-64 md:h-96 object-cover rounded-lg mt-8"
+        loading="eager"
+      />
+      
+      <div class="prose prose-lg mt-8 md:mt-16">
+        <p class="text-sm md:text-xl">{post.content[lang]}</p>
+      </div>
+    </div>
+  </article>
+
+  <Footer lang={lang} />
+</Layout>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('.fade-in').forEach((el) => {
+    fadeObserver.observe(el);
+  });
+</script>

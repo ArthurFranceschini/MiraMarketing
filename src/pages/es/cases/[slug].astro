@@ -8,13 +8,7 @@ import casesData from '../../../data/cases.json';
 import esCasePage from '../../../i18n/es/casePage.json';
 
 export function getStaticPaths() {
-  const cases = [
-    { id: "projeto-alpha" },
-    { id: "projeto-beta" },
-    { id: "projeto-gamma" }
-  ];
-  
-  return cases.map(c => ({
+  return casesData.cases.map(c => ({
     params: { slug: c.id }
   }));
 }
@@ -30,7 +24,7 @@ if (!caseData) {
 
 const breadcrumbItems = [
   { label: 'Inicio', href: `/${lang}/` },
-  { label: 'Casos', href: `/${lang}/casos` },
+  { label: 'Cases', href: `/${lang}/cases` },
   { label: caseData.name[lang] }
 ];
 ---

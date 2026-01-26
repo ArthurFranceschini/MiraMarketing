@@ -1,0 +1,109 @@
+---
+interface Props {
+  lang: 'pt' | 'es';
+}
+
+const { lang } = Astro.props;
+
+import BlogCard from './BlogCard.astro';
+import blogData from '../data/blog.json';
+
+import ptBlog from '../i18n/pt/blog.json';
+import esBlog from '../i18n/es/blog.json';
+
+const t = lang === 'pt' ? ptBlog : esBlog;
+const posts = blogData.posts;
+---
+
+<section 
+  id="blog" 
+  class="px-8 py-16 md:px-32 md:py-32" 
+  aria-labelledby="blog-heading"
+>
+  
+  <div class="text-center mb-8 md:mb-16">
+    <h2 
+      id="blog-heading" 
+      class="text-2xl md:text-5xl font-bold tracking-tight fade-in"
+    >
+      <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">{t.title}</span>
+    </h2>
+    
+    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in">{t.subtitle}</p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16">
+    {posts.map((post, index) => (
+      <div class="blog-wrapper fade-in" data-index={index}>
+        <BlogCard
+          image={post.image}
+          imageAlt={post.name[lang]}
+          title={post.name[lang]}
+          excerpt={post.excerpt[lang]}
+          href={`/${lang}/blog/${post.id}`}
+          date={post.date}
+          lang={lang}
+        />
+      </div>
+    ))}
+  </div>
+
+</section>
+
+<style>
+  .fade-in {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .blog-wrapper {
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  }
+</style>
+
+<script>
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 150);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('#blog .fade-in').forEach((el) => {
+    fadeObserver.observe(el);
+  });
+
+  const cards = document.querySelectorAll('.blog-wrapper');
+  
+  function handleScroll() {
+    cards.forEach((card) => {
+      const rect = card.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      const cardCenter = rect.top + rect.height / 2;
+      const viewportCenter = windowHeight / 2;
+      const distance = Math.abs(cardCenter - viewportCenter);
+      const maxDistance = windowHeight;
+      
+      const scale = 1 - (distance / maxDistance) * 0.1;
+      const clampedScale = Math.max(0.9, Math.min(1, scale));
+      
+      (card as HTMLElement).style.transform = `scale(${clampedScale})`;
+    });
+  }
+
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+</script>

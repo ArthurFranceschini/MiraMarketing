@@ -1,0 +1,25 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/footer.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+import Blog from '../../components/Blog.astro';
+
+const lang = 'es';
+
+const breadcrumbItems = [
+  { label: 'Inicio', href: `/${lang}/` },
+  { label: 'Blog' }
+];
+---
+
+<Layout
+  lang={lang}
+  title="Blog | Mira Marketing"
+  description="Contenidos e insights para acelerar el crecimiento de tu negocio"
+>
+  <Header lang={lang} />
+  <Breadcrumb items={breadcrumbItems} />
+  <Blog lang={lang} />
+  <Footer lang={lang} />
+</Layout>

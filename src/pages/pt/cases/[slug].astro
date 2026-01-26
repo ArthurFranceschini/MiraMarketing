@@ -8,13 +8,7 @@ import casesData from '../../../data/cases.json';
 import ptCasePage from '../../../i18n/pt/casePage.json';
 
 export function getStaticPaths() {
-  const cases = [
-    { id: "projeto-alpha" },
-    { id: "projeto-beta" },
-    { id: "projeto-gamma" }
-  ];
-  
-  return cases.map(c => ({
+  return casesData.cases.map(c => ({
     params: { slug: c.id }
   }));
 }

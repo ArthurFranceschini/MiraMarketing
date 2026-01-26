@@ -1,0 +1,58 @@
+{
+  "posts": [
+    {
+      "id": "como-aumentar-vendas-com-trafego-pago",
+      "image": "/blog/trafego-pago.jpg",
+      "date": "2025-01-20",
+      "name": {
+        "pt": "Como aumentar suas vendas com tráfego pago",
+        "es": "Cómo aumentar tus ventas con tráfico pago"
+      },
+      "excerpt": {
+        "pt": "Descubra as estratégias que utilizamos para gerar mais de R$ 10 milhões em vendas para nossos clientes usando anúncios no Google e Meta.",
+        "es": "Descubre las estrategias que utilizamos para generar más de R$ 10 millones en ventas para nuestros clientes usando anuncios en Google y Meta."
+      },
+      "content": {
+        "pt": "Conteúdo completo do artigo em português...",
+        "es": "Contenido completo del artículo en español..."
+      },
+      "tags": ["Tráfego Pago", "Marketing Digital", "Vendas"]
+    },
+    {
+      "id": "importancia-do-branding-para-empresas",
+      "image": "/blog/branding.jpg",
+      "date": "2025-01-15",
+      "name": {
+        "pt": "A importância do branding para empresas",
+        "es": "La importancia del branding para empresas"
+      },
+      "excerpt": {
+        "pt": "Entenda por que investir em uma marca forte é essencial para se destacar no mercado e conquistar a confiança dos clientes.",
+        "es": "Entiende por qué invertir en una marca fuerte es esencial para destacarse en el mercado y conquistar la confianza de los clientes."
+      },
+      "content": {
+        "pt": "Conteúdo completo do artigo em português...",
+        "es": "Contenido completo del artículo en español..."
+      },
+      "tags": ["Branding", "Estratégia", "Marca"]
+    },
+    {
+      "id": "automacao-de-marketing-guia-completo",
+      "image": "/blog/automacao.jpg",
+      "date": "2025-01-10",
+      "name": {
+        "pt": "Automação de marketing: guia completo",
+        "es": "Automatización de marketing: guía completa"
+      },
+      "excerpt": {
+        "pt": "Aprenda como automatizar processos de marketing e vendas para escalar seu negócio sem aumentar a equipe.",
+        "es": "Aprende cómo automatizar procesos de marketing y ventas para escalar tu negocio sin aumentar el equipo."
+      },
+      "content": {
+        "pt": "Conteúdo completo do artigo em português...",
+        "es": "Contenido completo del artículo en español..."
+      },
+      "tags": ["Automação", "Marketing", "Escala"]
+    }
+  ]
+}

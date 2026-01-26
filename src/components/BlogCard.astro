@@ -1,0 +1,85 @@
+---
+interface Props {
+  image: string;
+  imageAlt: string;
+  title: string;
+  excerpt: string;
+  href: string;
+  date: string;
+  lang: 'pt' | 'es';
+}
+
+const { image, imageAlt, title, excerpt, href, date, lang } = Astro.props;
+
+const formattedDate = new Date(date).toLocaleDateString(lang === 'pt' ? 'pt-BR' : 'es-ES', {
+  day: '2-digit',
+  month: 'short',
+  year: 'numeric'
+});
+
+const buttonText = lang === 'pt' ? 'Ler mais' : 'Leer más';
+---
+
+<a href={href} class="blog-card block rounded-lg overflow-hidden fade-in transition-transform duration-300 hover:scale-[1.02]">
+  <div class="p-4 md:p-8">
+    <img 
+      src={image} 
+      alt={imageAlt}
+      class="w-full h-48 md:h-64 object-cover rounded-lg"
+      loading="lazy"
+      decoding="async"
+    />
+    
+    <span class="text-xs md:text-sm text-gray-500 mt-4 md:mt-8 block">{formattedDate}</span>
+    
+    <h3 class="text-sm md:text-xl font-bold mt-2">{title}</h3>
+    
+    <p class="text-[0.5rem] md:text-base font-light mt-1 md:mt-2 line-clamp-3">{excerpt}</p>
+    
+    <div class="mt-4 md:mt-8">
+      <span class="cta-button relative rounded-md inline-block">
+        <span class="flex items-center justify-center px-4 py-2 md:px-6 md:py-2 rounded-md font-bold text-xs md:text-sm">
+          {buttonText}
+        </span>
+      </span>
+    </div>
+  </div>
+</a>
+
+<style>
+  .blog-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .blog-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .cta-button {
+    position: relative;
+    background: transparent;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+</style>
