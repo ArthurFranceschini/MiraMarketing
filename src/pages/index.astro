@@ -1,3 +1,4 @@
 ---
-return Astro.redirect('/es/');
+const userLang = Astro.request.headers.get('accept-language')?.includes('pt') ? 'pt' : 'es';
+return Astro.redirect(`/${userLang}/`);
 ---
