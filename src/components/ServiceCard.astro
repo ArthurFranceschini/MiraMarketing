@@ -15,19 +15,20 @@ const { icon: Icon, title, serviceName, description, href = '#' } = Astro.props;
 <a 
   href={href}
   class="service-card block rounded-lg p-8 h-full fade-in transition-transform duration-300 hover:scale-[1.02]"
+  itemprop="url"
 >
   <div class="flex justify-between items-start">
-    <span class="service-icon">
+    <span class="service-icon" aria-hidden="true">
       <Icon class="w-8 h-8" />
     </span>
-    <ArrowUpRight class="w-6 h-6 text-gray-400" />
+    <ArrowUpRight class="w-6 h-6 text-gray-400" aria-hidden="true" />
   </div>
   
-  <h3 class="text-base md:text-xl font-bold mt-4">{title}</h3>
+  <h3 class="text-base md:text-xl font-bold mt-4" itemprop="name">{title}</h3>
   
   <p class="text-xs md:text-base font-light mt-2">{serviceName}</p>
   
-  <p class="text-sm md:text-base mt-2">{description}</p>
+  <p class="text-sm md:text-base mt-2" itemprop="description">{description}</p>
 </a>
 
 <style>

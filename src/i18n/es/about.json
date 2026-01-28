@@ -5,7 +5,8 @@
   "description2": "Entregamos una asesoría completa, con equipo jurídico, financiero y marketing trabajando juntos para hacer crecer tu empresa.",
   "description3": "El marketing es solo el comienzo.",
   "clientsLabel": "Nuestros clientes",
-  "ctaText": "Agenda tu call",
-  "ctaLink": "contacto",
-  "ctaAriaLabel": "Agendar una reunión con Mira Marketing"
+  "ctaText": "Conoce nuestra historia",
+  "ctaLink": "nosotros",
+  "ctaAriaLabel": "Agendar una reunión con Mira Marketing",
+  "clientLogoAlt": "Logo del cliente"
 }

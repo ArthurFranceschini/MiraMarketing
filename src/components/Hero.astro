@@ -9,9 +9,31 @@ import ptHero from '../i18n/pt/hero.json';
 import esHero from '../i18n/es/hero.json';
 
 const t = lang === 'pt' ? ptHero : esHero;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Mira Marketing",
+  "url": `https://miramarketing.com/${lang}/`,
+  "description": t.subtitle,
+  "inLanguage": lang === 'pt' ? 'pt-BR' : 'es-ES',
+  "publisher": {
+    "@type": "Organization",
+    "name": "Mira Marketing",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://miramarketing.com/logo.svg"
+    }
+  },
+  "potentialAction": {
+    "@type": "ContactAction",
+    "target": t.chatLink,
+    "name": t.contactButton
+  }
+};
 ---
 
-<section class="relative px-8 py-8 md:px-32 md:py-16 min-h-[80vh] flex items-center overflow-visible" aria-label={t.heroLabel}>
+<section class="relative px-8 py-8 md:px-32 md:py-16 min-h-[80vh] flex items-center overflow-visible" aria-label={t.heroLabel} itemscope itemtype="https://schema.org/WPHeader">
   
   <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
     <div class="w-150 h-150 bg-[#0004FF] opacity-5 rounded-full blur-[150px] pulse-glow"></div>
@@ -25,52 +47,59 @@ const t = lang === 'pt' ? ptHero : esHero;
         
         <div class="flex justify-center md:justify-start mb-8 md:mb-16 hero-photos">
           <div class="flex -space-x-4">
-            <img src="/team/member-1.jpg" alt={t.team.member1} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" loading="eager" />
-            <img src="/team/member-2.jpg" alt={t.team.member2} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" loading="eager" />
-            <img src="/team/member-3.jpg" alt={t.team.member3} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" loading="eager" />
-            <img src="/team/member-4.jpg" alt={t.team.member4} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" loading="eager" />
-            <img src="/team/member-5.jpg" alt={t.team.member5} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" loading="eager" />
+            <img src="/team/member-1.jpg" alt={t.team.member1} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" width="48" height="48" loading="eager" />
+            <img src="/team/member-2.jpg" alt={t.team.member2} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" width="48" height="48" loading="eager" />
+            <img src="/team/member-3.jpg" alt={t.team.member3} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" width="48" height="48" loading="eager" />
+            <img src="/team/member-4.jpg" alt={t.team.member4} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" width="48" height="48" loading="eager" />
+            <img src="/team/member-5.jpg" alt={t.team.member5} class="w-8 h-8 md:w-12 md:h-12 rounded-full border-2 border-white object-cover" width="48" height="48" loading="eager" />
           </div>
         </div>
 
-        <h1 class="text-2xl md:text-5xl font-bold tracking-tight leading-tight">
-  <span class="flex items-center gap-1 md:gap-4">
-    <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent hero-title whitespace-nowrap">{t.title.line1}</span>
-    
-    <a 
-    href={`/${lang}/${t.chatLink}`}
-    class="group relative hero-chat shrink-0 hidden md:block"
-    aria-label={t.chatBubble}
-    >
-    <div class="chat-bubble relative rounded-lg md:rounded-2xl transition-transform duration-300 group-hover:scale-105">
-    <div class="flex items-center gap-0.5 md:gap-2 px-1 py-0.5 md:px-4 md:py-2">
-    <span class="text-[5px] md:text-sm font-medium whitespace-nowrap tracking-normal">{t.chatBubble}</span>
-    <svg class="w-1.5 h-1.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-    </svg>
-    </div>
-    </div>
-    </a>
-  </span>
-  
-  <span class="block bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent hero-title-2">{t.title.line2}</span>
-</h1>
+        <h1 class="text-2xl md:text-5xl font-bold tracking-tight leading-tight" itemprop="headline">
+          <span class="flex items-center gap-1 md:gap-4">
+            <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent hero-title whitespace-nowrap">{t.title.line1}</span>
+            
+            <a 
+              href={t.chatLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group relative hero-chat shrink-0 hidden md:block"
+              aria-label={t.chatBubble}
+            >
+              <div class="chat-bubble relative rounded-lg md:rounded-2xl transition-transform duration-300 group-hover:scale-105">
+                <div class="flex items-center gap-0.5 md:gap-2 px-1 py-0.5 md:px-4 md:py-2">
+                  <span class="text-[5px] md:text-sm font-medium whitespace-nowrap tracking-normal">{t.chatBubble}</span>
+                  <svg class="w-1.5 h-1.5 md:w-4 md:h-4 transition-transform duration-300 group-hover:translate-x-1 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </div>
+              </div>
+            </a>
+          </span>
+          
+          <span class="block bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent hero-title-2">{t.title.line2}</span>
+        </h1>
 
-        <h2 class="text-base md:text-xl font-bold mt-6 hero-subtitle max-w-xl">
+        <p class="text-base md:text-xl font-bold mt-6 hero-subtitle max-w-xl" itemprop="description">
           {t.subtitle}
-        </h2>
+        </p>
 
         <div class="mt-8 md:mt-16 flex justify-center md:justify-start hero-button">
-          <a href={`/${lang}/${t.chatLink}`} class="contact-button relative rounded-md inline-block">
+          <a 
+            href={t.chatLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-button relative rounded-md inline-block"
+          >
             <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
               {t.contactButton}
             </span>
           </a>
         </div>
 
-        <div class="flex flex-col gap-4 mt-8 lg:hidden">
+        <div class="flex flex-col gap-4 mt-8 lg:hidden" role="list" aria-label={t.statsLabel}>
           
-          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-1">
+          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-1" role="listitem">
             <span class="text-2xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.projects.number}</span>
             <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
               <span class="block">{t.stats.projects.line1}</span>
@@ -78,7 +107,7 @@ const t = lang === 'pt' ? ptHero : esHero;
             </span>
           </div>
 
-          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-2">
+          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-2" role="listitem">
             <span class="text-2xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.revenue.number}</span>
             <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
               <span class="block">{t.stats.revenue.line1}</span>
@@ -86,7 +115,7 @@ const t = lang === 'pt' ? ptHero : esHero;
             </span>
           </div>
 
-          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-3">
+          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-3" role="listitem">
             <span class="text-2xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.leads.number}</span>
             <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
               <span class="block">{t.stats.leads.line1}</span>
@@ -94,7 +123,7 @@ const t = lang === 'pt' ? ptHero : esHero;
             </span>
           </div>
 
-          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-4">
+          <div class="stat-card rounded-lg px-4 py-4 flex items-center justify-center gap-2 hero-stat-4" role="listitem">
             <span class="text-2xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.roi.number}</span>
             <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
               <span class="block">{t.stats.roi.line1}</span>
@@ -106,9 +135,9 @@ const t = lang === 'pt' ? ptHero : esHero;
 
       </div>
 
-      <div class="hidden lg:flex lg:flex-col lg:gap-8 lg:ml-8 lg:w-64">
+      <aside class="hidden lg:flex lg:flex-col lg:gap-8 lg:ml-8 lg:w-64" role="list" aria-label={t.statsLabel}>
         
-        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-1 w-full">
+        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-1 w-full" role="listitem">
           <span class="text-3xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.projects.number}</span>
           <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
             <span class="block">{t.stats.projects.line1}</span>
@@ -116,7 +145,7 @@ const t = lang === 'pt' ? ptHero : esHero;
           </span>
         </div>
 
-        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-2 w-full">
+        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-2 w-full" role="listitem">
           <span class="text-3xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.revenue.number}</span>
           <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
             <span class="block">{t.stats.revenue.line1}</span>
@@ -124,7 +153,7 @@ const t = lang === 'pt' ? ptHero : esHero;
           </span>
         </div>
 
-        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-3 w-full">
+        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-3 w-full" role="listitem">
           <span class="text-3xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.leads.number}</span>
           <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
             <span class="block">{t.stats.leads.line1}</span>
@@ -132,7 +161,7 @@ const t = lang === 'pt' ? ptHero : esHero;
           </span>
         </div>
 
-        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-4 w-full">
+        <div class="stat-card rounded-lg px-4 py-6 flex items-center justify-center gap-2 hero-stat-4 w-full" role="listitem">
           <span class="text-3xl font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-none">{t.stats.roi.number}</span>
           <span class="text-sm leading-tight bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
             <span class="block">{t.stats.roi.line1}</span>
@@ -140,13 +169,15 @@ const t = lang === 'pt' ? ptHero : esHero;
           </span>
         </div>
 
-      </div>
+      </aside>
 
     </div>
 
   </div>
 
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .stat-card,

@@ -15,11 +15,13 @@ const breadcrumbItems = [
 
 <Layout
   lang={lang}
-  title="Blog | Mira Marketing"
-  description="Conteúdos e insights para acelerar o crescimento do seu negócio"
+  title="Blog | Mira Marketing - Conteúdos de Marketing Digital"
+  description="Conteúdos e insights para acelerar o crescimento do seu negócio. Artigos sobre tráfego pago, branding, SEO e estratégias digitais."
 >
   <Header lang={lang} />
-  <Breadcrumb items={breadcrumbItems} />
-  <Blog lang={lang} />
+  <main>
+    <Breadcrumb items={breadcrumbItems} />
+    <Blog lang={lang} />
+  </main>
   <Footer lang={lang} />
 </Layout>

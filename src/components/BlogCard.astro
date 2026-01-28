@@ -17,10 +17,11 @@ const formattedDate = new Date(date).toLocaleDateString(lang === 'pt' ? 'pt-BR' 
   year: 'numeric'
 });
 
+const isoDate = new Date(date).toISOString();
 const buttonText = lang === 'pt' ? 'Ler mais' : 'Leer más';
 ---
 
-<a href={href} class="blog-card block rounded-lg overflow-hidden fade-in transition-transform duration-300 hover:scale-[1.02]">
+<a href={href} class="blog-card block rounded-lg overflow-hidden fade-in transition-transform duration-300 hover:scale-[1.02]" itemprop="url">
   <div class="p-4 md:p-8">
     <img 
       src={image} 
@@ -28,16 +29,21 @@ const buttonText = lang === 'pt' ? 'Ler mais' : 'Leer más';
       class="w-full h-48 md:h-64 object-cover rounded-lg"
       loading="lazy"
       decoding="async"
+      width="800"
+      height="533"
+      itemprop="image"
     />
     
-    <span class="text-xs md:text-sm text-gray-500 mt-4 md:mt-8 block">{formattedDate}</span>
+    <time datetime={isoDate} class="text-xs md:text-sm text-gray-500 mt-4 md:mt-8 block" itemprop="datePublished">
+      {formattedDate}
+    </time>
     
-    <h3 class="text-sm md:text-xl font-bold mt-2">{title}</h3>
+    <h3 class="text-sm md:text-xl font-bold mt-2" itemprop="headline">{title}</h3>
     
-    <p class="text-[0.5rem] md:text-base font-light mt-1 md:mt-2 line-clamp-3">{excerpt}</p>
+    <p class="text-[0.5rem] md:text-base font-light mt-1 md:mt-2 line-clamp-3" itemprop="description">{excerpt}</p>
     
     <div class="mt-4 md:mt-8">
-      <span class="cta-button relative rounded-md inline-block">
+      <span class="cta-button relative rounded-md inline-block" aria-hidden="true">
         <span class="flex items-center justify-center px-4 py-2 md:px-6 md:py-2 rounded-md font-bold text-xs md:text-sm">
           {buttonText}
         </span>

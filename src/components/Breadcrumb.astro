@@ -9,22 +9,38 @@ interface Props {
 }
 
 const { items } = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.label,
+    ...(item.href && { "item": `https://miramarketing.com${item.href}` })
+  }))
+};
 ---
 
-<nav aria-label="Breadcrumb" class="px-8 md:px-32 py-4">
+<nav aria-label="Breadcrumb" class="px-8 md:px-32 py-4" itemscope itemtype="https://schema.org/BreadcrumbList">
   <ol class="flex items-center gap-2 text-sm">
     {items.map((item, index) => (
-      <li class="flex items-center gap-2">
-        {index > 0 && <span class="text-gray-400">/</span>}
+      <li class="flex items-center gap-2" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        {index > 0 && <span class="text-gray-400" aria-hidden="true">/</span>}
         {item.href ? (
-          <a href={item.href} class="hover:opacity-70 transition-opacity">{item.label}</a>
+          <a href={item.href} class="hover:opacity-70 transition-opacity" itemprop="item">
+            <span itemprop="name">{item.label}</span>
+          </a>
         ) : (
-          <span class="gradient-text font-bold">{item.label}</span>
+          <span class="gradient-text font-bold" itemprop="name">{item.label}</span>
         )}
+        <meta itemprop="position" content={String(index + 1)} />
       </li>
     ))}
   </ol>
 </nav>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .gradient-text {

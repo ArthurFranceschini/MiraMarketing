@@ -3,25 +3,25 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/footer.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
-import Cases from '../../components/Cases.astro';
+import AboutUs from '../../components/AboutUs.astro';
 
 const lang = 'es';
 
 const breadcrumbItems = [
   { label: 'Inicio', href: `/${lang}/` },
-  { label: 'Cases' }
+  { label: 'Sobre Nosotros' }
 ];
 ---
 
 <Layout
   lang={lang}
-  title="Cases de Éxito | Mira Marketing - Resultados Reales"
-  description="Conoce los casos de éxito de Mira Marketing. Proyectos de tráfico pago, branding, SEO y estrategias digitales que generaron resultados reales para nuestros clientes."
+  title="Sobre Nosotros | Mira Marketing - Agencia de Marketing Digital"
+  description="Conoce a Mira Marketing: agencia de marketing digital enfocada en resultados reales. Estrategia, datos y ejecución para hacer crecer tu negocio de forma predecible y escalable."
 >
   <Header lang={lang} />
   <main>
     <Breadcrumb items={breadcrumbItems} />
-    <Cases lang={lang} />
+    <AboutUs lang={lang} />
   </main>
   <Footer lang={lang} />
 </Layout>

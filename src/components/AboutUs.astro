@@ -1,0 +1,225 @@
+---
+interface Props {
+  lang: 'pt' | 'es';
+}
+
+const { lang } = Astro.props;
+
+import ptAboutUs from '../i18n/pt/aboutUs.json';
+import esAboutUs from '../i18n/es/aboutUs.json';
+
+const t = lang === 'pt' ? ptAboutUs : esAboutUs;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": t.title,
+  "description": t.description1,
+  "url": `https://miramarketing.com/${lang}/${lang === 'pt' ? 'sobre' : 'nosotros'}`,
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "Mira Marketing",
+    "description": t.description1,
+    "foundingDate": "2020",
+    "areaServed": ["Brasil", "Paraguay"],
+    "knowsAbout": ["Marketing Digital", "Tráfego Pago", "Branding", "SEO", "Automação"]
+  }
+};
+---
+
+<section 
+  id="sobre-nos" 
+  class="px-8 py-16 md:px-32 md:py-32" 
+  aria-labelledby="about-us-heading"
+  itemscope
+  itemtype="https://schema.org/AboutPage"
+>
+  
+  <div class="max-w-4xl mx-auto text-center fade-in">
+    <span class="text-sm md:text-base font-bold gradient-text">{t.label}</span>
+    
+    <h1 
+      id="about-us-heading" 
+      class="text-2xl md:text-5xl font-bold tracking-tight mt-4"
+      itemprop="name"
+    >
+      <span class="gradient-text">{t.title}</span>
+    </h1>
+    
+    <p class="text-sm md:text-xl mt-4 md:mt-8" itemprop="description">{t.description1}</p>
+    
+    <p class="text-sm md:text-xl mt-4 md:mt-8">{t.description2}</p>
+    
+    <p class="text-sm md:text-xl mt-4 md:mt-8 font-bold">{t.description3}</p>
+  </div>
+
+  <div class="mt-16 md:mt-32">
+    <div class="text-center mb-8 md:mb-16 fade-in">
+      <h2 class="text-xl md:text-3xl font-bold">
+        <span class="gradient-text">{t.methodTitle}</span>
+      </h2>
+      <p class="text-sm md:text-xl mt-4">{t.methodSubtitle}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-8" role="list" aria-label={t.methodTitle}>
+      {t.values.map((value, index) => (
+        <article class="value-card p-6 md:p-8 rounded-lg fade-in" data-index={index} role="listitem">
+          <div class="flex items-center gap-4 mb-4">
+            <span class="text-2xl md:text-3xl" aria-hidden="true">{value.icon}</span>
+            <h3 class="text-base md:text-xl font-bold">{value.title}</h3>
+          </div>
+          <p class="text-xs md:text-base">{value.description}</p>
+        </article>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-16 md:mt-32">
+    <div class="text-center mb-8 md:mb-16 fade-in">
+      <h2 class="text-xl md:text-3xl font-bold">
+        <span class="gradient-text">{t.whyTitle}</span>
+      </h2>
+      <p class="text-sm md:text-xl mt-4">{t.whySubtitle}</p>
+    </div>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" role="list" aria-label={t.whyTitle}>
+      {t.reasons.map((reason, index) => (
+        <div class="reason-card p-4 md:p-6 rounded-lg fade-in flex items-center gap-3" data-index={index} role="listitem">
+          <span class="text-lg md:text-xl gradient-text" aria-hidden="true">✓</span>
+          <p class="text-xs md:text-base font-medium">{reason}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <div class="mt-16 md:mt-32 text-center fade-in">
+    <div class="cta-final-card p-8 md:p-16 rounded-lg max-w-3xl mx-auto">
+      <p class="text-sm md:text-xl font-bold">{t.ctaLine1}</p>
+      <p class="text-sm md:text-xl font-bold mt-2">{t.ctaLine2}</p>
+      <p class="text-sm md:text-xl font-bold mt-2">{t.ctaLine3}</p>
+      
+      <div class="mt-8">
+        <a href={`/${lang}/contato`} class="cta-button relative rounded-md inline-block">
+          <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
+            {t.ctaButton}
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+<style>
+  .gradient-text {
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .value-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .value-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .reason-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .reason-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .cta-final-card {
+    position: relative;
+    background: transparent;
+  }
+
+  .cta-final-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .cta-button {
+    position: relative;
+    background: transparent;
+  }
+
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(2rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+
+<script>
+  const fadeObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = parseInt((entry.target as HTMLElement).dataset.index || '0');
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 100);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll('#sobre-nos .fade-in').forEach((el) => {
+    fadeObserver.observe(el);
+  });
+</script>

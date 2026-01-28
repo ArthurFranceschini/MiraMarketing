@@ -1,71 +1,68 @@
 {
   "cases": [
     {
-      "id": "projeto-alpha",
-      "image": "/cases/case-1.jpg",
-      "heroImage": "/cases/case-1-hero.jpg",
-      "problemImage1": "/cases/case-1-problem-1.jpg",
-      "problemImage2": "/cases/case-1-problem-2.jpg",
+      "id": "jardins-do-pontal",
+      "image": "/cases/case-1.png",
+      "heroImage": "/cases/case-1-hero.png",
       "solutionImage": "/cases/case-1-solution.jpg",
-      "resultsImage": "/cases/case-1-results.jpg",
-      "projectLink": "https://alphatech.com.br",
+      "projectLink": "https://www.jardinsdopontal.com.br/",
       "name": {
-        "pt": "Projeto Alpha",
-        "es": "Proyecto Alpha"
+        "pt": "Jardins do Pontal",
+        "es": "Jardins do Pontal"
       },
       "description": {
-        "pt": "Rebranding completo e lançamento digital para startup de tecnologia.",
-        "es": "Rebranding completo y lanzamiento digital para startup de tecnología."
+        "pt": "Qualificação de leads, melhoria na presença digital e melhorias no SEO.",
+        "es": "Cualificación de leads, mejora de la presencia digital y optimización del SEO."
       },
       "heroDescription": {
-        "pt": "A Alpha Tech precisava se reposicionar no mercado para atrair investidores e escalar suas operações.",
-        "es": "Alpha Tech necesitaba reposicionarse en el mercado para atraer inversores y escalar sus operaciones."
+        "pt": "O Jardins do Pontal precisava aumentar sua visibilidade no Google, melhorar a qualidade dos conteúdos para redes sociais e qualificar leads por meio da gestão de tráfego.",
+        "es": "Jardins do Pontal necesitaba aumentar su visibilidad en Google, mejorar la calidad del contenido en redes sociales y calificar leads mediante la gestión de tráfico."
       },
       "problem": {
-        "pt": "A empresa tinha um produto excelente, mas sua marca não transmitia credibilidade. O site era desatualizado e os leads qualificados eram escassos.",
-        "es": "La empresa tenía un producto excelente, pero su marca no transmitía credibilidad. El sitio estaba desactualizado y los leads calificados eran escasos."
+        "pt": "O Jardins do Pontal tinha um bom produto, mas sua presença digital não refletia esse valor. O site precisava evoluir, o posicionamento no Google era baixo e os leads que chegavam eram de baixa qualidade.",
+        "es": "Jardins do Pontal tenía un buen producto, pero su presencia digital no reflejaba ese valor. El sitio necesitaba evolucionar, el posicionamiento en Google era bajo y los leads que llegaban eran de baja calidad."
       },
       "solution": {
-        "pt": "Criamos uma nova identidade visual que posicionou a Alpha Tech como líder em inovação.",
-        "es": "Creamos una nueva identidad visual que posicionó a Alpha Tech como líder en innovación."
+        "pt": "Para reverter esse cenário, desenvolvemos um novo site focado em design, conversão e vendas, otimizamos as campanhas de tráfego com melhor segmentação e criativos mais estratégicos, e elevamos a qualidade dos conteúdos do feed do Instagram.",
+        "es": "Para revertir este escenario, desarrollamos un nuevo sitio web enfocado en diseño, conversión y ventas, optimizamos las campañas de tráfico con mejor segmentación y creativos más estratégicos, y elevamos la calidad del contenido del feed de Instagram."
       },
       "solutionPoints": {
         "pt": [
-          "Nova identidade visual completa",
-          "Site institucional focado em conversão",
-          "Campanhas de tráfego pago segmentadas",
-          "Automação de marketing e CRM"
-        ],
-        "es": [
-          "Nueva identidad visual completa",
-          "Sitio institucional enfocado en conversión",
-          "Campañas de tráfico pago segmentadas",
-          "Automatización de marketing y CRM"
-        ]
-      },
+              "Criação e otimização do site com foco em conversão e vendas",
+              "Melhoria no posicionamento orgânico no Google (SEO)",
+              "Campanhas de tráfego pago com qualificação de leads e criativos estratégicos",
+              "Aumento da qualidade e consistência dos conteúdos para Instagram"
+              ],
+       "es": [
+            "Creación y optimización del sitio web enfocado en conversión y ventas",
+            "Mejora del posicionamiento orgánico en Google (SEO)",
+            "Campañas de tráfico pago con calificación de leads y creativos estratégicos",
+            "Mejora en la calidad y consistencia del contenido para Instagram"
+              ]
+        },
       "resultsDescription": {
-        "pt": "Em 6 meses, a Alpha Tech triplicou o número de leads qualificados.",
-        "es": "En 6 meses, Alpha Tech triplicó el número de leads calificados."
-      },
+        "pt": "Em 3 campanhas, obtivemos um crescimento superior a 300% em vendas, com aumento expressivo do ROI e melhora significativa na qualidade dos leads. As campanhas alcançaram custo médio de R$ 8 por clique em criativos focados em leads altamente qualificados, direcionados à compra de terrenos.",
+        "es": "En 3 campañas, logramos un crecimiento superior al 300% en ventas, con un aumento significativo del ROI y una mejora notable en la calidad de los leads. Las campañas alcanzaron un costo promedio de R$ 8 por clic en creativos enfocados en leads altamente calificados, orientados a la compra de terrenos."
+        },
       "results": [
-        {
-          "number": "+300%",
-          "label": { "pt": "Leads qualificados", "es": "Leads calificados" }
-        },
-        {
-          "number": "R$2M",
-          "label": { "pt": "Investimento captado", "es": "Inversión captada" }
-        },
-        {
-          "number": "+150%",
-          "label": { "pt": "Tráfego orgânico", "es": "Tráfico orgánico" }
-        },
-        {
-          "number": "45%",
-          "label": { "pt": "Taxa de conversão", "es": "Tasa de conversión" }
-        }
-      ],
-      "tags": ["Branding", "Digital", "Lançamento"]
+      {
+      "number": "+300%",
+      "label": { "pt": "Crescimento em vendas", "es": "Crecimiento en ventas" }
+      },
+      {
+     "number": "+200%",
+     "label": { "pt": "ROI das campanhas", "es": "ROI de las campañas" }
+      },
+     {
+    "number": "3ª",
+    "label": { "pt": "Posicionamento médio em resultados de busca", "es": "Posicionamiento promedio en resultados de búsqueda" }
+     },
+    {
+    "number": "+180%",
+    "label": { "pt": "Leads qualificados", "es": "Leads calificados" }
+    }
+],
+"tags": ["SEO", "Tráfego Pago", "Social Media", "Qualificação e Conversão de Leads"]
     }
   ]
 }

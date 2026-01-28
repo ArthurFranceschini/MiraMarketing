@@ -1,11 +1,12 @@
 {
   "title": {
     "line1": "Mira o Alvo.",
-    "line2": "Alcança o Resultado."
+    "line2": "Alcança o Resultado.",
+    "statsLabel": "Nossos resultados"
   },
   "subtitle": "Combinamos estratégia, branding, dados, tráfego, tecnologia e IA para transformar marketing em re$ultado real.",
   "chatBubble": "Como podemos te ajudar hoje?",
-  "chatLink": "contato",
+  "chatLink": "https://api.whatsapp.com/send/?phone=5545988441835&text=Ol%C3%A1%21+Vim+pelo+site+da+Mira+Marketing+e+gostaria+de+saber+mais+sobre+os+servi%C3%A7os+de+voc%C3%AAs.+Podem+me+ajudar%3F&type=phone_number&app_absent=0",  
   "contactButton": "Contate-nos",
   "heroLabel": "Introdução",
   "team": {

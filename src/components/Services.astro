@@ -28,12 +28,36 @@ const services = [
   { icon: Maximize2, ...t.services.licensing },
   { icon: Clapperboard, ...t.services.audiovisual },
 ];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": t.title,
+  "description": t.subtitle,
+  "numberOfItems": services.length,
+  "itemListElement": services.map((service, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Service",
+      "name": service.title,
+      "description": service.description,
+      "url": `https://miramarketing.com/${lang}/${service.href}`,
+      "provider": {
+        "@type": "Organization",
+        "name": "Mira Marketing"
+      }
+    }
+  }))
+};
 ---
 
 <section 
   id="servicos" 
   class="px-8 py-16 md:px-32 md:py-32" 
   aria-labelledby="services-heading"
+  itemscope
+  itemtype="https://schema.org/ItemList"
 >
 
   <svg class="absolute w-0 h-0" aria-hidden="true">
@@ -49,16 +73,17 @@ const services = [
     <h2 
       id="services-heading" 
       class="text-2xl md:text-5xl font-bold tracking-tight fade-in"
+      itemprop="name"
     >
       <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">{t.title}</span>
     </h2>
     
-    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in">{t.subtitle}</p>
+    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in" itemprop="description">{t.subtitle}</p>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
     {services.map((service, index) => (
-      <div class="service-wrapper fade-in" data-index={index}>
+      <article class="service-wrapper fade-in" data-index={index} itemprop="itemListElement" itemscope itemtype="https://schema.org/Service">
         <ServiceCard
           icon={service.icon}
           title={service.title}
@@ -66,11 +91,13 @@ const services = [
           description={service.description}
           href={service.href}
         />
-      </div>
+      </article>
     ))}
   </div>
 
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .fade-in {
@@ -108,7 +135,6 @@ const services = [
     fadeObserver.observe(el);
   });
 
-  // Parallax shrink
   const cards = document.querySelectorAll('.service-wrapper');
   
   function handleScroll() {

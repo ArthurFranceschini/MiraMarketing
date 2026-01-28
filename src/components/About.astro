@@ -15,21 +15,34 @@ const clients = [
   { name: 'Dr Escritura', logo: '/clients/drescritura.svg' },
   { name: 'Patrulha Canina', logo: '/clients/patrulhacanina.svg' },
 ];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Mira Marketing",
+  "description": t.description1,
+  "url": `https://miramarketing.com/${lang}/`,
+  "logo": "https://miramarketing.com/logo.svg",
+  "areaServed": ["Brasil", "Paraguay"],
+  "knowsAbout": ["Marketing Digital", "Tráfego Pago", "Branding", "SEO"]
+};
 ---
 
 <section 
   id="sobre"
   class="px-8 py-16 md:px-32 md:py-32"
   aria-labelledby="about-heading"
+  itemscope
+  itemtype="https://schema.org/Organization"
 >
   <div class="text-center">
     <h2 id="about-heading" class="text-2xl md:text-6xl font-bold fade-in">
-      <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-tight">
+      <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent leading-tight" itemprop="slogan">
         {t.highlight}
       </span>
     </h2>
 
-    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in">
+    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in" itemprop="description">
       {t.description1}
     </p>
 
@@ -47,18 +60,22 @@ const clients = [
     role="region"
     aria-label={t.clientsLabel}
   >
+    <h3 class="sr-only">{t.clientsLabel}</h3>
     <div class="marquee">
       <div class="marquee-inner">
-
         <div class="marquee-group">
           {clients.map((client) => (
-            <img
-              src={client.logo}
-              alt={`Logo ${client.name}`}
-              loading="lazy"
-              decoding="async"
-              class="carousel-logo"
-            />
+            <figure>
+              <img
+                src={client.logo}
+                alt={`${t.clientLogoAlt} ${client.name}`}
+                loading="lazy"
+                decoding="async"
+                width="200"
+                height="72"
+                class="carousel-logo"
+              />
+            </figure>
           ))}
         </div>
 
@@ -69,6 +86,8 @@ const clients = [
               alt=""
               loading="lazy"
               decoding="async"
+              width="200"
+              height="72"
               class="carousel-logo"
             />
           ))}
@@ -82,6 +101,7 @@ const clients = [
       href={`/${lang}/${t.ctaLink}`}
       class="cta-button relative inline-block rounded-md"
       aria-label={t.ctaAriaLabel}
+      title={t.ctaText}
     >
       <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
         {t.ctaText}
@@ -90,99 +110,96 @@ const clients = [
   </div>
 </section>
 
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
 <style>
+  .cta-button {
+    position: relative;
+    background: transparent;
+  }
 
-.cta-button {
-  position: relative;
-  background: transparent;
-}
+  .cta-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: linear-gradient(to right, #0004FF, #FF0A0A);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 
-.cta-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-  background: linear-gradient(to right, #0004FF, #FF0A0A);
-  -webkit-mask: linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
+  .marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+  }
 
+  .marquee-inner {
+    display: flex;
+    width: 200%;
+    will-change: transform;
+    animation: marquee 30s linear infinite;
+  }
 
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
+  .marquee:hover .marquee-inner {
+    animation-play-state: paused;
+  }
 
-.marquee-inner {
-  display: flex;
-  width: 200%;
-  will-change: transform;
-  animation: marquee 30s linear infinite;
-}
+  .marquee-group {
+    display: flex;
+    width: 50%;
+    gap: 4rem;
+    align-items: center;
+  }
 
-.marquee:hover .marquee-inner {
-  animation-play-state: paused;
-}
-
-.marquee-group {
-  display: flex;
-  width: 50%;
-  gap: 4rem;
-}
-
-
-.carousel-logo {
-  height: 3rem; 
-  min-width: 140px;
-  object-fit: contain;
-  flex-shrink: 0;
-  filter: grayscale(100%);
-  opacity: 0.5;
-  transition: filter 0.3s ease, opacity 0.3s ease;
-}
-
-.carousel-logo:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-}
-
-/* deskop */
-@media (min-width: 768px) {
   .carousel-logo {
-    height: 4.5rem;
-    min-width: 200px;
+    height: 3rem;
+    min-width: 140px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: filter 0.3s ease, opacity 0.3s ease;
   }
-}
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+  .carousel-logo:hover {
+    filter: grayscale(0%);
+    opacity: 1;
   }
-  to {
-    transform: translateX(-50%);
+
+  @media (min-width: 768px) {
+    .carousel-logo {
+      height: 4.5rem;
+      min-width: 200px;
+    }
   }
-}
 
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
 
-.fade-in {
-  opacity: 0;
-  transform: translateY(-1.25rem);
-  transition: opacity 0.6s ease-out,
-              transform 0.6s ease-out;
-}
+  .fade-in {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
 
-.fade-in.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
 </style>
+
 <script>
-  const observer = new IntersectionObserver(
+  const fadeObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
@@ -195,7 +212,7 @@ const clients = [
     { threshold: 0.1 }
   );
 
-  document.querySelectorAll('.fade-in').forEach((el) => {
-    observer.observe(el);
+  document.querySelectorAll('#sobre .fade-in').forEach((el) => {
+    fadeObserver.observe(el);
   });
 </script>

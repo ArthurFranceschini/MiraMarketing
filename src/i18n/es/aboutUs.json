@@ -1,0 +1,44 @@
+{
+  "label": "Quiénes Somos",
+  "title": "Crecimiento como prioridad, no como apuesta.",
+  "description1": "Mira nació para empresas que tratan el crecimiento como prioridad, no como apuesta. Somos una agencia que actúa donde el marketing realmente hace la diferencia: en la estrategia, en los números y en la ejecución.",
+  "description2": "Unimos tecnología, datos, creatividad y visión de negocio para transformar presencia digital en facturación predecible y escalable.",
+  "description3": "Trabajamos lado a lado con empresarios que valoran proceso, claridad y retorno real. No entregamos solo campañas, sitios o contenido. Entregamos estructura para vender mejor, todos los días.",
+  "methodTitle": "Nuestra Forma de Trabajar",
+  "methodSubtitle": "Nuestra visión es simple: crear sistemas que transforman la atención en clientes y clientes en ingresos.",
+  "values": [
+    {
+      "icon": "🎯",
+      "title": "Foco en Resultados",
+      "description": "Cada estrategia nace con un objetivo claro: generar impacto real en el negocio. Trabajamos con métricas, performance y ROI medible, no con suposiciones."
+    },
+    {
+      "icon": "⚡",
+      "title": "Agilidad",
+      "description": "El mercado cambia rápido. Nosotros también. Ajustamos rutas, creativos y estrategias en tiempo real para mantener tu empresa siempre competitiva."
+    },
+    {
+      "icon": "🚀",
+      "title": "Obsesión por Resultados",
+      "description": "Somos movidos por performance. Nos gusta ver números subiendo, metas siendo alcanzadas y empresas creciendo. Esto se refleja en el nivel de entrega de cada proyecto."
+    },
+    {
+      "icon": "📊",
+      "title": "Transparencia Total",
+      "description": "Acompañas todo. Datos, informes, decisiones y próximos pasos. Comunicación directa, clara y sin juegos ocultos."
+    }
+  ],
+  "whyTitle": "Por qué elegir Mira",
+  "whySubtitle": "Las empresas nos eligen cuando quieren dejar de depender de la suerte y empezar a operar con método.",
+  "reasons": [
+    "Visión estratégica de negocio, no solo marketing",
+    "Seguimiento de métricas y resultados reales",
+    "Equipo completo (tecnología, tráfico, contenido, diseño y datos)",
+    "Procesos claros y predecibles",
+    "Foco absoluto en crecimiento sostenible"
+  ],
+  "ctaLine1": "Mira es para quien quiere estructura.",
+  "ctaLine2": "Para quien quiere previsibilidad.",
+  "ctaLine3": "Para quien quiere resultado en la caja, no solo movimiento en las redes.",
+  "ctaButton": "Contáctanos"
+}

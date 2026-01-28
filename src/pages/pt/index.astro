@@ -8,18 +8,45 @@ import Services from '../../components/Services.astro';
 import Footer from '../../components/footer.astro';
 import Blog from '../../components/Blog.astro';
 
+const lang = 'pt';
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "MarketingAgency",
+  "name": "Mira Marketing",
+  "url": "https://miramarketing.com/pt/",
+  "logo": "https://miramarketing.com/logo.svg",
+  "description": "Agência de marketing digital na fronteira Brasil-Paraguai. Estratégias digitais que crescem seu negócio.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Foz do Iguaçu",
+    "addressRegion": "PR",
+    "addressCountry": "BR"
+  },
+  "areaServed": ["Brasil", "Paraguay"],
+  "serviceType": ["Marketing Digital", "Tráfego Pago", "Branding", "SEO", "Desenvolvimento Web", "Automação"],
+  "priceRange": "$$",
+  "sameAs": [
+    "https://instagram.com/maboramira",
+    "https://linkedin.com/company/maboramira"
+  ]
+};
 ---
 
 <Layout
-	lang='pt'
-	title='Mira Marketing, a melhor agência de marketing da fronteira'
-	description='A melhor agência de marketing da fronteira. Estratégias digitais que crescem seu negócio'
+  lang={lang}
+  title="Mira Marketing | Agência de Marketing Digital na Fronteira Brasil-Paraguai"
+  description="Agência de marketing digital em Foz do Iguaçu. Estratégias de tráfego pago, branding, SEO e automação que geram resultados reais para seu negócio."
 >
-	<Header lang="pt" />
-	 <Hero lang="pt" />
-	 <About lang="pt"/>
-	 <Cases lang="pt"/>
-	 <Services lang="pt"/>
-	 <Blog lang="pt"/>
- 	 <Footer lang="pt"/>
-</Layout> 
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <About lang={lang} />
+    <Cases lang={lang} />
+    <Services lang={lang} />
+    <Blog lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />

@@ -27,143 +27,170 @@ const breadcrumbItems = [
   { label: 'Cases', href: `/${lang}/cases` },
   { label: caseData.name[lang] }
 ];
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "CaseStudy",
+  "name": caseData.name[lang],
+  "description": caseData.description[lang],
+  "url": `https://miramarketing.com/${lang}/cases/${caseData.id}`,
+  "image": `https://miramarketing.com${caseData.heroImage}`,
+  "author": {
+    "@type": "Organization",
+    "name": "Mira Marketing",
+    "url": "https://miramarketing.com"
+  },
+  "about": {
+    "@type": "Thing",
+    "name": caseData.name[lang],
+    "description": caseData.heroDescription[lang]
+  },
+  "keywords": caseData.tags.join(", ")
+};
 ---
 
 <Layout
   lang={lang}
-  title={`${caseData.name[lang]} | Mira Marketing`}
+  title={`${caseData.name[lang]} | Case de Sucesso - Mira Marketing`}
   description={caseData.description[lang]}
+  image={caseData.heroImage}
 >
   <Header lang={lang} />
-  <Breadcrumb items={breadcrumbItems} />
-  
-  <!-- Hero -->
-  <section class="px-8 py-16 md:px-32 md:py-32 min-h-[60vh] flex items-center relative overflow-hidden">
-    <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
-      <div class="w-150 h-150 bg-[#0004FF] opacity-5 rounded-full blur-[150px]"></div>
-    </div>
+  <main>
+    <Breadcrumb items={breadcrumbItems} />
     
-    <div class="relative z-10 w-full">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-        <div class="fade-in">
-          <div class="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8">
-            {caseData.tags.map((tag) => (
-              <span class="text-xs md:text-sm font-light px-3 py-1 rounded-full border border-gray-300">
-                {tag}
+    <article itemscope itemtype="https://schema.org/Article">
+      <section class="px-8 py-16 md:px-32 md:py-32 min-h-[60vh] flex items-center relative overflow-hidden" aria-labelledby="case-title">
+        <div class="absolute inset-0 flex items-center justify-center" aria-hidden="true">
+          <div class="w-150 h-150 bg-[#0004FF] opacity-5 rounded-full blur-[150px]"></div>
+        </div>
+        
+        <div class="relative z-10 w-full">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+            <div class="fade-in">
+              <div class="flex flex-wrap gap-2 md:gap-4 mb-4 md:mb-8" itemprop="keywords">
+                {caseData.tags.map((tag) => (
+                  <span class="text-xs md:text-sm font-light px-3 py-1 rounded-full border border-gray-300">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <span class="text-sm md:text-base font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+                {t.caseStudy}
               </span>
-            ))}
+              <h1 id="case-title" class="text-2xl md:text-5xl font-bold tracking-tight mt-4" itemprop="headline">
+                <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+                  {caseData.name[lang]}
+                </span>
+              </h1>
+              <p class="text-sm md:text-xl mt-4 md:mt-8" itemprop="description">
+                {caseData.heroDescription[lang]}
+              </p>
+              
+              <div class="mt-8">
+                <a href={caseData.projectLink} target="_blank" rel="noopener noreferrer" class="cta-button relative rounded-md inline-block">
+                  <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
+                    {t.ctaButton}
+                  </span>
+                </a>
+              </div>
+            </div>
+            <div class="fade-in">
+              <img 
+                src={caseData.heroImage} 
+                alt={caseData.name[lang]}
+                class="w-full h-64 md:h-96 object-cover rounded-lg"
+                width="1200"
+                height="800"
+                loading="eager"
+                itemprop="image"
+              />
+            </div>
           </div>
-          <span class="text-sm md:text-base font-bold bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
-            {t.caseStudy}
-          </span>
-          <h1 class="text-2xl md:text-5xl font-bold tracking-tight mt-4">
+        </div>
+      </section>
+
+      <section class="px-8 py-16 md:px-32 md:py-32 bg-gray-50" aria-labelledby="problem-title">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+          <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8" aria-hidden="true">
+            <AlertCircle class="w-8 h-8 md:w-12 md:h-12 text-white" />
+          </div>
+          <h2 id="problem-title" class="text-2xl md:text-5xl font-bold tracking-tight">
             <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
-              {caseData.name[lang]}
+              {t.problemTitle}
             </span>
-          </h1>
+          </h2>
           <p class="text-sm md:text-xl mt-4 md:mt-8">
-            {caseData.heroDescription[lang]}
+            {caseData.problem[lang]}
           </p>
-          
-          <!-- CTA no Hero -->
-          <div class="mt-8">
-            <a href={caseData.projectLink} target="_blank" rel="noopener noreferrer" class="cta-button relative rounded-md inline-block">
-              <span class="flex items-center justify-center px-8 py-3 rounded-md font-bold text-base md:text-lg">
-                {t.ctaButton}
+        </div>
+      </section>
+
+      <section class="px-8 py-16 md:px-32 md:py-32" aria-labelledby="solution-title">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
+          <div class="fade-in order-2 md:order-1">
+            <img 
+              src={caseData.solutionImage} 
+              alt={t.solutionImageAlt}
+              class="w-full h-64 md:h-96 object-cover rounded-lg"
+              width="1200"
+              height="800"
+              loading="lazy"
+            />
+          </div>
+          <div class="fade-in order-1 md:order-2">
+            <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8" aria-hidden="true">
+              <Lightbulb class="w-8 h-8 md:w-12 md:h-12 text-white" />
+            </div>
+            <h2 id="solution-title" class="text-2xl md:text-5xl font-bold tracking-tight">
+              <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
+                {t.solutionTitle}
               </span>
-            </a>
+            </h2>
+            <p class="text-sm md:text-xl mt-4 md:mt-8">
+              {caseData.solution[lang]}
+            </p>
+            <ul class="mt-4 md:mt-8 space-y-2 md:space-y-4" role="list">
+              {caseData.solutionPoints[lang].map((point) => (
+                <li class="flex items-start gap-2 text-sm md:text-base" role="listitem">
+                  <span class="w-2 h-2 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mt-2 shrink-0" aria-hidden="true"></span>
+                  {point}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <div class="fade-in">
-          <img 
-            src={caseData.heroImage} 
-            alt={caseData.name[lang]}
-            class="w-full h-64 md:h-96 object-cover rounded-lg"
-            loading="eager"
-          />
-        </div>
-      </div>
-    </div>
-  </section>
+      </section>
 
-  <!-- O Problema -->
-  <section class="px-8 py-16 md:px-32 md:py-32 bg-gray-50">
-    <div class="max-w-4xl mx-auto text-center fade-in">
-      <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8">
-        <AlertCircle class="w-8 h-8 md:w-12 md:h-12 text-white" />
-      </div>
-      <h2 class="text-2xl md:text-5xl font-bold tracking-tight">
-        <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
-          {t.problemTitle}
-        </span>
-      </h2>
-      <p class="text-sm md:text-xl mt-4 md:mt-8">
-        {caseData.problem[lang]}
-      </p>
-    </div>
-  </section>
-
-  <!-- Nossa Solução -->
-  <section class="px-8 py-16 md:px-32 md:py-32">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
-      <div class="fade-in order-2 md:order-1">
-        <img 
-          src={caseData.solutionImage} 
-          alt={t.solutionImageAlt}
-          class="w-full h-64 md:h-96 object-cover rounded-lg"
-          loading="lazy"
-        />
-      </div>
-      <div class="fade-in order-1 md:order-2">
-        <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mb-8">
-          <Lightbulb class="w-8 h-8 md:w-12 md:h-12 text-white" />
+      <section class="px-8 py-16 md:px-32 md:py-32 bg-linear-to-r from-[#0004FF] to-[#FF0A0A]" aria-labelledby="results-title">
+        <div class="max-w-4xl mx-auto text-center fade-in">
+          <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white mb-8" aria-hidden="true">
+            <Trophy class="w-8 h-8 md:w-12 md:h-12 text-[#0004FF]" />
+          </div>
+          <h2 id="results-title" class="text-2xl md:text-5xl font-bold tracking-tight text-white">
+            {t.resultsTitle}
+          </h2>
+          <p class="text-sm md:text-xl mt-4 md:mt-8 text-white/90">
+            {caseData.resultsDescription[lang]}
+          </p>
         </div>
-        <h2 class="text-2xl md:text-5xl font-bold tracking-tight">
-          <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">
-            {t.solutionTitle}
-          </span>
-        </h2>
-        <p class="text-sm md:text-xl mt-4 md:mt-8">
-          {caseData.solution[lang]}
-        </p>
-        <ul class="mt-4 md:mt-8 space-y-2 md:space-y-4">
-          {caseData.solutionPoints[lang].map((point) => (
-            <li class="flex items-start gap-2 text-sm md:text-base">
-              <span class="w-2 h-2 rounded-full bg-linear-to-r from-[#0004FF] to-[#FF0A0A] mt-2 shrink-0"></span>
-              {point}
-            </li>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 md:mt-32" role="list" aria-label="Resultados del proyecto">
+          {caseData.results.map((result) => (
+            <div class="text-center fade-in" role="listitem">
+              <span class="text-3xl md:text-6xl font-bold text-white">{result.number}</span>
+              <p class="text-xs md:text-base text-white/80 mt-2">{result.label[lang]}</p>
+            </div>
           ))}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resultados -->
-  <section class="px-8 py-16 md:px-32 md:py-32 bg-linear-to-r from-[#0004FF] to-[#FF0A0A]">
-    <div class="max-w-4xl mx-auto text-center fade-in">
-      <div class="inline-flex items-center justify-center w-16 h-16 md:w-24 md:h-24 rounded-full bg-white mb-8">
-        <Trophy class="w-8 h-8 md:w-12 md:h-12 text-[#0004FF]" />
-      </div>
-      <h2 class="text-2xl md:text-5xl font-bold tracking-tight text-white">
-        {t.resultsTitle}
-      </h2>
-      <p class="text-sm md:text-xl mt-4 md:mt-8 text-white/90">
-        {caseData.resultsDescription[lang]}
-      </p>
-    </div>
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16 md:mt-32">
-      {caseData.results.map((result) => (
-        <div class="text-center fade-in">
-          <span class="text-3xl md:text-6xl font-bold text-white">{result.number}</span>
-          <p class="text-xs md:text-base text-white/80 mt-2">{result.label[lang]}</p>
         </div>
-      ))}
-    </div>
-  </section>
+      </section>
+    </article>
+  </main>
 
   <Footer lang={lang} />
 </Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .cta-button {

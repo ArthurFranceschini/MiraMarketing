@@ -1,58 +1,28 @@
 {
   "posts": [
     {
-      "id": "como-aumentar-vendas-com-trafego-pago",
-      "image": "/blog/trafego-pago.jpg",
-      "date": "2025-01-20",
+      "id": "sabor-energetico",
+      "image": "/blog/sabor-energetico.jpg",
+      "date": "2026-01-28",
       "name": {
-        "pt": "Como aumentar suas vendas com tráfego pago",
-        "es": "Cómo aumentar tus ventas con tráfico pago"
+        "pt": "Como Toguro transformou um meme em motor de vendas da Mansão Maromba",
+        "es": "Cómo Toguro transformó un meme en motor de ventas de Mansão Maromba"
       },
       "excerpt": {
-        "pt": "Descubra as estratégias que utilizamos para gerar mais de R$ 10 milhões em vendas para nossos clientes usando anúncios no Google e Meta.",
-        "es": "Descubre las estrategias que utilizamos para generar más de R$ 10 millones en ventas para nuestros clientes usando anuncios en Google y Meta."
+        "pt": "O meme “sabor energético” começou como brincadeira e se transformou em uma poderosa estratégia de marketing orgânico, impactando diretamente as vendas da Mansão Maromba.",
+        "es": "El meme “sabor energético” comenzó como una broma y se convirtió en una poderosa estrategia de marketing orgánico, impactando directamente las ventas de Mansão Maromba."
       },
       "content": {
-        "pt": "Conteúdo completo do artigo em português...",
-        "es": "Contenido completo del artículo en español..."
+        "pt": "O que começou como uma brincadeira virou estratégia de marketing orgânico com impacto direto no caixa. A expressão “sabor energético”, popularizada por Toguro nas redes sociais, se transformou em um dos memes mais comentados do universo fitness brasileiro e acabou impulsionando as vendas dos produtos ligados à Mansão Maromba.\n\nO termo surgiu em vídeos informais, com o tom exagerado e bem-humorado que já é marca registrada do influenciador. A forma como ele descrevia alimentos, suplementos e refeições da rotina da mansão rapidamente caiu no gosto do público, gerando milhares de comentários, reposts e variações do meme em plataformas como TikTok, Instagram e X.\n\nO efeito foi quase imediato. Produtos associados à marca, principalmente suplementos e itens alimentícios divulgados nos conteúdos, passaram a registrar aumento significativo de procura. Seguidores começaram a pedir explicitamente “o produto do sabor energético”, transformando a piada em um gatilho de compra. Em pouco tempo, a expressão deixou de ser apenas entretenimento e passou a funcionar como um selo informal de aprovação.\n\nEspecialistas em marketing digital apontam o caso como um exemplo claro de como memes funcionam como atalhos de atenção. Eles reduzem a distância entre marca e consumidor, criam identificação emocional e tornam a mensagem fácil de memorizar. No caso da Mansão Maromba, o meme ajudou a humanizar a comunicação e afastar o tom publicitário tradicional.\n\nOutro fator decisivo foi a velocidade. A equipe de Toguro e os parceiros comerciais perceberam rapidamente o potencial da expressão e passaram a incorporá-la de forma recorrente em vídeos, legendas e campanhas, reforçando o termo sem parecer forçado. Essa repetição estratégica consolidou o meme como parte da identidade da marca.\n\nO resultado foi um aumento perceptível no engajamento, no tráfego para páginas de venda e na conversão de produtos ligados ao ecossistema da Mansão Maromba. Mesmo sem números oficiais divulgados, parceiros comerciais e o próprio influenciador já relataram impactos positivos nas vendas após a viralização.\n\nO caso mostra que, no cenário atual, marketing não depende apenas de grandes produções ou campanhas complexas. Linguagem autêntica, timing correto e leitura rápida do comportamento do público podem transformar uma simples piada em um ativo comercial poderoso.",
+        "es": "Lo que comenzó como una broma se convirtió en una estrategia de marketing orgánico con impacto directo en las ventas. La expresión “sabor energético”, popularizada por Toguro en redes sociales, se transformó en uno de los memes más comentados del universo fitness brasileño e impulsó los productos vinculados a Mansão Maromba.\n\nEl término surgió en videos informales, con un tono exagerado y humorístico que ya es marca registrada del influencer. La forma en que describía alimentos, suplementos y comidas de la rutina de la mansión rápidamente conquistó al público, generando miles de comentarios, reposts y variaciones del meme en plataformas como TikTok, Instagram y X.\n\nEl efecto fue casi inmediato. Productos asociados a la marca comenzaron a registrar un aumento significativo en la demanda. Los seguidores pasaron a pedir explícitamente “el producto del sabor energético”, transformando el chiste en un disparador de compra.\n\nEspecialistas en marketing digital señalan el caso como un ejemplo claro de cómo los memes funcionan como atajos de atención, humanizan la comunicación y facilitan la memorización del mensaje. La velocidad de adopción y repetición estratégica del término fue clave para consolidarlo como parte de la identidad de la marca.\n\nEl resultado fue mayor engagement, tráfico hacia páginas de venta y conversión en productos del ecosistema Mansão Maromba. Un ejemplo práctico de cómo el entretenimiento, la identidad de marca y las ventas pueden convivir en un mismo movimiento."
       },
-      "tags": ["Tráfego Pago", "Marketing Digital", "Vendas"]
-    },
-    {
-      "id": "importancia-do-branding-para-empresas",
-      "image": "/blog/branding.jpg",
-      "date": "2025-01-15",
-      "name": {
-        "pt": "A importância do branding para empresas",
-        "es": "La importancia del branding para empresas"
-      },
-      "excerpt": {
-        "pt": "Entenda por que investir em uma marca forte é essencial para se destacar no mercado e conquistar a confiança dos clientes.",
-        "es": "Entiende por qué invertir en una marca fuerte es esencial para destacarse en el mercado y conquistar la confianza de los clientes."
-      },
-      "content": {
-        "pt": "Conteúdo completo do artigo em português...",
-        "es": "Contenido completo del artículo en español..."
-      },
-      "tags": ["Branding", "Estratégia", "Marca"]
-    },
-    {
-      "id": "automacao-de-marketing-guia-completo",
-      "image": "/blog/automacao.jpg",
-      "date": "2025-01-10",
-      "name": {
-        "pt": "Automação de marketing: guia completo",
-        "es": "Automatización de marketing: guía completa"
-      },
-      "excerpt": {
-        "pt": "Aprenda como automatizar processos de marketing e vendas para escalar seu negócio sem aumentar a equipe.",
-        "es": "Aprende cómo automatizar procesos de marketing y ventas para escalar tu negocio sin aumentar el equipo."
-      },
-      "content": {
-        "pt": "Conteúdo completo do artigo em português...",
-        "es": "Contenido completo del artículo en español..."
-      },
-      "tags": ["Automação", "Marketing", "Escala"]
+      "tags": [
+        "Marketing Orgânico",
+        "Memes",
+        "Influenciadores",
+        "Branding",
+        "Vendas"
+      ]
     }
   ]
 }

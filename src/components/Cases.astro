@@ -13,28 +13,51 @@ import esCases from '../i18n/es/cases.json';
 
 const t = lang === 'pt' ? ptCases : esCases;
 const cases = casesData.cases;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": t.title,
+  "description": t.subtitle,
+  "numberOfItems": cases.length,
+  "itemListElement": cases.map((caseItem, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "CreativeWork",
+      "name": caseItem.name[lang],
+      "description": caseItem.description[lang],
+      "image": `https://miramarketing.com${caseItem.image}`,
+      "url": `https://miramarketing.com/${lang}/cases/${caseItem.id}`,
+      "keywords": caseItem.tags.join(", ")
+    }
+  }))
+};
 ---
 
 <section 
   id="cases" 
   class="px-8 py-16 md:px-32 md:py-32" 
   aria-labelledby="cases-heading"
+  itemscope
+  itemtype="https://schema.org/ItemList"
 >
   
   <div class="text-center mb-8 md:mb-16">
     <h2 
       id="cases-heading" 
       class="text-2xl md:text-5xl font-bold tracking-tight fade-in"
+      itemprop="name"
     >
       <span class="bg-linear-to-r from-[#0004FF] to-[#FF0A0A] bg-clip-text text-transparent">{t.title}</span>
     </h2>
     
-    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in">{t.subtitle}</p>
+    <p class="text-sm md:text-2xl font-bold mt-4 md:mt-8 fade-in" itemprop="description">{t.subtitle}</p>
   </div>
 
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 md:gap-16">
     {cases.map((caseItem, index) => (
-      <div class="card-wrapper fade-in" data-index={index}>
+      <article class="card-wrapper fade-in" data-index={index} itemprop="itemListElement" itemscope itemtype="https://schema.org/CreativeWork">
         <CaseCard
           image={caseItem.image}
           imageAlt={caseItem.name[lang]}
@@ -44,11 +67,13 @@ const cases = casesData.cases;
           slug={caseItem.id}
           lang={lang}
         />
-      </div>
+      </article>
     ))}
   </div>
 
 </section>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .fade-in {
@@ -86,7 +111,6 @@ const cases = casesData.cases;
     fadeObserver.observe(el);
   });
 
-  // Parallax shrink effect
   const cards = document.querySelectorAll('.card-wrapper');
   
   function handleScroll() {

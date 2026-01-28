@@ -14,12 +14,46 @@ import esHeader from '../i18n/es/header.json';
 const t = lang === 'pt' ? ptHeader : esHeader;
 
 const latestCases = casesData.cases.slice(-3).reverse();
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "SiteNavigationElement",
+  "name": "Main Navigation",
+  "url": `https://miramarketing.com/${lang}/`,
+  "hasPart": [
+    {
+      "@type": "SiteNavigationElement",
+      "name": t.about,
+      "url": `https://miramarketing.com/${lang}/${t.aboutUrl}`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": t.services,
+      "url": `https://miramarketing.com/${lang}/${t.servicesUrl}`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": t.portfolio,
+      "url": `https://miramarketing.com/${lang}/${t.portfolioUrl}`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": t.blog,
+      "url": `https://miramarketing.com/${lang}/${t.blogUrl}`
+    },
+    {
+      "@type": "SiteNavigationElement",
+      "name": t.contact,
+      "url": `https://miramarketing.com/${lang}/${t.contactUrl}`
+    }
+  ]
+};
 ---
 
-<header class="flex items-center justify-between px-8 md:px-32 py-8">
+<header class="flex items-center justify-between px-8 md:px-32 py-8" itemscope itemtype="https://schema.org/WPHeader">
 
-  <a href={`/${lang}/`} aria-label={t.homeLabel} class="animate-fade-in-down" style="animation-delay: 0ms;">
-    <img src="/logo.svg" alt="Mira Marketing" class="h-8 md:h-16 w-auto" />
+  <a href={`/${lang}/`} aria-label={t.homeLabel} class="animate-fade-in-down" style="animation-delay: 0ms;" itemprop="url">
+    <img src="/logo.svg" alt="Mira Marketing" class="h-8 md:h-16 w-auto" width="160" height="64" itemprop="logo" />
   </a>
 
   <div class="flex items-center gap-3 md:hidden">
@@ -47,6 +81,7 @@ const latestCases = casesData.cases.slice(-3).reverse();
       aria-expanded="false"
       aria-controls="mobile-menu"
       id="menu-toggle"
+      type="button"
     >
       <span class="flex items-center justify-center w-8 h-8 bg-white rounded-md">
         <Menu class="w-4 h-4" aria-hidden="true" />
@@ -55,12 +90,11 @@ const latestCases = casesData.cases.slice(-3).reverse();
   </div>
 
   <div class="hidden md:flex items-center gap-8">
-    <nav aria-label={t.menuLabel} class="flex items-center gap-8 text-base lg:text-2xl whitespace-nowrap">
-      <a href={`/${lang}/${t.aboutUrl}`} class="animate-fade-in-down" style="animation-delay: 100ms;">{t.about}</a>
-      <a href={`/${lang}/${t.servicesUrl}`} class="animate-fade-in-down" style="animation-delay: 150ms;">{t.services}</a>
-      <a href={`/${lang}/${t.portfolioUrl}`} class="animate-fade-in-down" style="animation-delay: 200ms;">{t.portfolio}</a>
-      <a href={`/${lang}/${t.blogUrl}`} class="animate-fade-in-down" style="animation-delay: 250ms;">{t.blog}</a>
-      <a href={`/${lang}/${t.contactUrl}`} class="cta-button relative rounded-md inline-block animate-fade-in-down" style="animation-delay: 300ms;">
+    <nav aria-label={t.menuLabel} class="flex items-center gap-8 text-base lg:text-2xl whitespace-nowrap" itemscope itemtype="https://schema.org/SiteNavigationElement">
+      <a href={`/${lang}/${t.aboutUrl}`} class="animate-fade-in-down" style="animation-delay: 100ms;" itemprop="url">{t.about}</a>
+      <a href={`/${lang}/${t.servicesUrl}`} class="animate-fade-in-down" style="animation-delay: 150ms;" itemprop="url">{t.services}</a>
+      <a href={`/${lang}/${t.portfolioUrl}`} class="animate-fade-in-down" style="animation-delay: 200ms;" itemprop="url">{t.portfolio}</a>
+        <a href={t.contactUrl} target="_blank" rel="noopener noreferrer" class="cta-button relative rounded-md inline-block animate-fade-in-down" style="animation-delay: 300ms;" itemprop="url">
         <span class="flex items-center justify-center px-4 py-1 rounded-md font-bold">
           {t.contact}
         </span>
@@ -74,6 +108,7 @@ const latestCases = casesData.cases.slice(-3).reverse();
       class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] animate-fade-in-down"
       style="animation-delay: 350ms;"
       aria-label={lang === 'pt' ? 'Cambiar a Español' : 'Mudar para Português'}
+      rel="alternate"
     >
       <span class="flex items-center justify-center w-10 h-10 bg-white rounded-md">
         {lang === 'pt' ? (
@@ -105,6 +140,7 @@ const latestCases = casesData.cases.slice(-3).reverse();
       class="relative p-0.5 rounded-md bg-linear-to-r from-[#0004FF] to-[#FF0A0A] menu-item opacity-0"
       aria-label={t.closeMenu}
       id="menu-close"
+      type="button"
     >
       <span class="flex items-center justify-center w-8 h-8 bg-white rounded-md">
         <X class="w-4 h-4" aria-hidden="true" />
@@ -112,18 +148,19 @@ const latestCases = casesData.cases.slice(-3).reverse();
     </button>
   </div>
 
-  <div class="h-1 bg-linear-to-r from-[#FF0A0A] to-[#0004FF] shrink-0 menu-item opacity-0"></div>
+  <div class="h-1 bg-linear-to-r from-[#FF0A0A] to-[#0004FF] shrink-0 menu-item opacity-0" role="separator"></div>
 
   <nav aria-label={t.menuLabel} class="flex flex-col overflow-y-auto flex-1">
     
     <a href={`/${lang}/${t.aboutUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.about}</a>
-    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)" role="separator"></div>
     
     <button 
       class="py-4 text-base flex items-center justify-between w-full text-left px-8 menu-item opacity-0"
       id="services-toggle"
       aria-expanded="false"
       aria-controls="services-dropdown"
+      type="button"
     >
       {t.services}
       <ChevronRight class="w-4 h-4 transition-transform duration-300" id="services-chevron" aria-hidden="true" />
@@ -184,7 +221,7 @@ const latestCases = casesData.cases.slice(-3).reverse();
       </a>
     </div>
     
-    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)" role="separator"></div>
     
     <a href={`/${lang}/${t.portfolioUrl}`} class="py-4 text-base px-8 menu-item opacity-0 font-bold gradient-text">{t.portfolio}</a>
     
@@ -196,6 +233,9 @@ const latestCases = casesData.cases.slice(-3).reverse();
               src={caseItem.image} 
               alt={caseItem.name[lang]}
               class="w-16 h-16 object-cover shrink-0"
+              width="64"
+              height="64"
+              loading="lazy"
             />
             <div class="px-4 py-2 flex flex-col justify-center gap-1">
               <h3 class="text-sm font-bold leading-tight">{caseItem.name[lang]}</h3>
@@ -211,10 +251,10 @@ const latestCases = casesData.cases.slice(-3).reverse();
       </div>
     </div>
     
-    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)" role="separator"></div>
     
     <a href={`/${lang}/${t.blogUrl}`} class="py-4 text-base px-8 menu-item opacity-0">{t.blog}</a>
-    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)"></div>
+    <div class="h-px shrink-0 menu-item opacity-0" style="background: linear-gradient(to right, #FAFAFA 0%, #FF0A0A 25%, #0004FF 75%, #FAFAFA 100%)" role="separator"></div>
     
     <div class="px-8 py-4 menu-item opacity-0">
       <a href={`/${lang}/${t.contactUrl}`} class="cta-button relative rounded-md block">
@@ -226,6 +266,8 @@ const latestCases = casesData.cases.slice(-3).reverse();
     
   </nav>
 </div>
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
 
 <style>
   .service-icon :global(svg) {
@@ -312,11 +354,11 @@ const latestCases = casesData.cases.slice(-3).reverse();
   }
 
   .gradient-text {
-  background: linear-gradient(to right, #FF0A0A, #0004FF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+    background: linear-gradient(to right, #FF0A0A, #0004FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 </style>
 
 <script>
@@ -373,7 +415,7 @@ const latestCases = casesData.cases.slice(-3).reverse();
       servicesToggle?.setAttribute('aria-expanded', 'true');
 
       serviceItems.forEach((item, index) => {
-        setTimeout(() => {
+        setTimeout(() => {  
           item.classList.add('show');
         }, 50 * index);
       });

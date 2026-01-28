@@ -1,0 +1,44 @@
+{
+  "label": "Quem Somos",
+  "title": "Crescimento como prioridade, não como aposta.",
+  "description1": "A Mira nasceu para empresas que tratam crescimento como prioridade, não como aposta. Somos uma agência que atua onde o marketing realmente faz diferença: na estratégia, nos números e na execução.",
+  "description2": "Unimos tecnologia, dados, criatividade e visão de negócio para transformar presença digital em faturamento previsível e escalável.",
+  "description3": "Trabalhamos lado a lado com empresários que valorizam processo, clareza e retorno real. Não entregamos apenas campanhas, sites ou conteúdo. Entregamos estrutura para vender melhor, todos os dias.",
+  "methodTitle": "Nossa Forma de Trabalhar",
+  "methodSubtitle": "Nossa visão é simples: criar sistemas que transformam a atenção em clientes e clientes em receita.",
+  "values": [
+    {
+      "icon": "🎯",
+      "title": "Foco em Resultados",
+      "description": "Cada estratégia nasce com um objetivo claro: gerar impacto real no negócio. Trabalhamos com métricas, performance e ROI mensurável, não com achismos."
+    },
+    {
+      "icon": "⚡",
+      "title": "Agilidade",
+      "description": "O mercado muda rápido. Nós também. Ajustamos rotas, criativos e estratégias em tempo real para manter sua empresa sempre competitiva."
+    },
+    {
+      "icon": "🚀",
+      "title": "Obsessão por Resultados",
+      "description": "Somos movidos por performance. Gostamos de ver números subindo, metas sendo batidas e empresas crescendo. Isso se reflete no nível de entrega de cada projeto."
+    },
+    {
+      "icon": "📊",
+      "title": "Transparência Total",
+      "description": "Você acompanha tudo. Dados, relatórios, decisões e próximos passos. Comunicação direta, clara e sem jogos escondidos."
+    }
+  ],
+  "whyTitle": "Por que escolher a Mira",
+  "whySubtitle": "Empresas nos escolhem quando querem parar de depender de sorte e começar a operar com método.",
+  "reasons": [
+    "Visão estratégica de negócio, não só marketing",
+    "Acompanhamento de métricas e resultados reais",
+    "Equipe completa (tecnologia, tráfego, conteúdo, design e dados)",
+    "Processos claros e previsíveis",
+    "Foco absoluto em crescimento sustentável"
+  ],
+  "ctaLine1": "A Mira é para quem quer estrutura.",
+  "ctaLine2": "Para quem quer previsibilidade.",
+  "ctaLine3": "Para quem quer resultado no caixa, não só movimento nas redes.",
+  "ctaButton": "Fale Conosco"
+}
