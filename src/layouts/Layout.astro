@@ -21,6 +21,17 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
 <!doctype html>
 <html lang={lang}>
   <head>
+  <script is:inline>
+  window.dataLayer = window.dataLayer || []
+  </script>
+
+    <script
+    is:inline
+    async
+    src="https://www.googletagmanager.com/gtm.js?id=GTM-545TWBRD"
+    ></script>
+
+  
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content={Astro.generator} />
@@ -64,6 +75,14 @@ const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
     <link rel="manifest" href="/site.webmanifest" />
   </head>
   <body class="font-[Comfortaa,sans-serif]">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-545TWBRD"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+      ></iframe>
+    </noscript>
     <slot />
   </body>
 </html>
